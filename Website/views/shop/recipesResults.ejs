@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/recipesResults.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>Recipes</title>
+</head>
+<body>
+
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End--> 
+
+  <div class="col-xs-12">
+    <div class="">
+        
+            <% if (recipes.length>0){ %>
+                <% for (let recipe of recipes) {%>
+                <a href="../../getRecipeById/<%= recipe._id%>" class="removeaHref">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                <div class="recipesBox cursor">
+                    <div class=" center">
+                        <img class="imageRecipesBox"  src="<%= recipe.image%>">
+                    </div>
+                    <div class="nameRecipesBox center">
+                        <strong><%= recipe.name%></strong>
+                    </div>
+
+                
+                        <hr style="margin-bottom: 5px;">
+                
+                    <div class="flex-start " >
+                        <div class="margin-left-20px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                        </div>
+                        <div >
+                            <p class="margin-left-5px"><strong>Preparation Time: <%= recipe.preparationTime%></strong></p>
+                        </div>
+                        
+                    </div>
+            
+                        <hr style="margin-top: -5px;">
+                
+                    <div class="" >
+                        <p class="margin-left-20px"><strong>ingredients:</strong></p>
+                        <div class="ingredients" >
+                            <ol type="1">
+                                <% for(var i = 0; i < 2; i++){%>
+                                    <li><%= recipe.Ingredients[i] %></li>
+                                <%}%>
+                            </ol>
+                            <fade/>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <strong> <p class="seeMore "> See More</p></strong>
+                    </div>
+                </div>
+            </div>
+                
+                <%}%>
+            <%}%>
+        
+
+    </div>
+  </div>
+ 
+</div>
+
+
+
+<!--footer Start-->
+<%- include('../include/footer'); %>
+<!--footer End-->
+  
+
+</body>
+</html>

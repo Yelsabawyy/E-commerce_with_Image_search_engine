@@ -1,0 +1,73 @@
+/* index.css start*/
+    .overFlowHidden{
+        overflow: hidden;
+    }
+    /* sponserdiv start*/
+    .mainSponsoredDiv{
+        margin-top: -15px;
+    }
+    .sponsoredimg{
+        width: 100%;
+        object-fit: fill;
+    }
+        /* sponserdiv end*/
+    
+        /* meal div start*/
+    .mealDiv{
+        width: 400px;
+        border-radius: 15px;
+        display: flex;
+        height: 180px;
+        justify-content: space-between;
+        align-items: center;
+        background-color:var(--darkGreen);
+        background-image:
+            radial-gradient(
+            var(--lightGreen),
+            var(--green)
+            );
+        }
+        /* meal div end*/
+        /* special offers div start*/
+    
+    .bigDivSpecialOffers{
+        padding: 0px 15px 0px 15px
+    }
+    .specialOfferDiv{
+        margin: 5px 5px 5px 5px;
+        padding: 15px;
+        border-radius: 15px;
+        align-items: center;
+        background-color:var(--darkGreen);
+        background-image:
+            radial-gradient(
+            var(--lightGreen),
+            var(--green)
+            );
+        overflow: hidden;  
+    }
+    .specialOffersButton{
+        border: none;
+        background-color: var(--yellow);
+        padding: 10px 25px 10px 25px;
+        color: var(--darkGreen);
+    
+    }
+        /* special offers div end*/
+    .zoom{
+        transition: transform .2s;
+    }
+    .zoom:hover{
+        -ms-transform: scale(1.1); /* IE 9 */
+        -webkit-transform: scale(1.1); /* Safari 3-8 */
+        transform: scale(1.1); 
+    }
+    
+    /* index.css end*/
+
+    .off-50{
+        padding: 15px;height: 150px; overflow: hidden;
+    }
+    .off-50-img{
+        height: 500px;
+    }

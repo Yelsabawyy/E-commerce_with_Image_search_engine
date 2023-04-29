@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/addNewBranch.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>Add New Branch</title>
+</head>
+<body>
+    <!-- sidenavbar start-->
+    <%- include('../include/sidenavbar'); %>
+    <!-- sidenavbar end-->
+    
+    
+    <div id="myBody">    
+    <!--header1 Start-->
+        <%- include('../include/header1'); %>
+    <!--header1 End-->
+    <!--header1 Start-->
+        <%- include('../include/header2'); %>
+    <!--header1 End-->
+<div class="container formDiv " >
+    <div class=" row-eq-height formContainer">
+        <div class="col-lg-4 col-md-4 hidden-sm hidden-xs bgGreen verticalHorizontalCenter">
+            <div class="logoFormContainer whiteColor center">Yelsabawy</div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-12 no-padding-margin">
+            <div class="col-sm-12 col-xs-12 hidden-lg hidden-md bgGreen verticalHorizontalCenter" >
+                <div class="logoFormContainer whiteColor" >Yelsabawy</div>
+            </div>
+
+            <div class="center padding-10px" >
+                <h4>
+                    Add New Branch
+                </h4>
+            </div>
+            <div class="center padding-bottom-20px">
+                <form>
+                    <input type="text" class="newBranchInput" placeholder="Branch Name" required ><br>
+                    <input type="text" class="newBranchInput" placeholder="Address" required ><br>
+                    <input type="time" class="newBranchInput" placeholder="Open At" required ><br>
+                    <input type="time" class="newBranchInput" placeholder="Close At" required ><br>
+                    <input type="text" class="newBranchInput" placeholder="Location Google Url" required ><br>
+                    <button class="formButton padding-10px margin-5px">Add New Branch!!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+     <!--footer Start-->
+     <%- include('../include/footer'); %>
+     <!--footer End--> 
+
+</body>
+</html>

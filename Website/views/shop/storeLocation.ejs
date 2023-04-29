@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <!-- css sheet start-->
+        
+            <!-- css components sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+                <!-- css components sheet end-->
+                <!-- css includes sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+                <!-- css includes sheet end-->
+                <!-- css general sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+                <!-- css general sheet end-->    
+                <!-- css page sheet end-->    
+            <link rel="stylesheet" type="text/css" href="../css/storeLocation.css"/>
+                <!-- css page sheet end-->
+                <!-- css bootstrap3.4.1 sheet end-->    
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <!-- css bootstrap3.4.1 sheet end-->
+            
+            <!-- css sheet start-->
+            
+            <!-- js file start-->
+                <!-- js header2 file start-->
+            <script src="../js/includes/header2.js"></script> 
+                <!-- js header2 file end-->
+                <!-- js bootstrap file start-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <!-- js bootstrap file end-->
+            
+            <!-- js file end-->
+            
+            <title>Store Locations</title>
+    </head>
+
+<body>
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End--> 
+    <div class="aboutImg">
+        <div class="center imgText">
+            Our Branches
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-4 verticalHorizontalCenter position-relative" >
+                <div>
+                    <h4  class="bold">York - Foss Islands Road</h4 >
+                    <p>Foss Islands Road YO31 7UR</p>
+                    <p class="redColor">Store closed now</p>
+                    <strong> Open Today: 10:00am - 4:00pm</strong>
+                </div>   
+            </div>
+            <div class="col-md-7 col-sm-8 col-xs-8 position-relative" >
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe class="iFrame" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-4 verticalHorizontalCenter position-relative">
+                <div>
+                    <h4  class="bold">York - Foss Islands Road</h4 >
+                    <p>Foss Islands Road YO31 7UR</p>
+                    <p class="redColor">Store closed now</p>
+                    <strong> Open Today: 10:00am - 4:00pm</strong>
+                </div>   
+            </div>
+            <div class="col-md-7 col-sm-8 col-xs-8 position-relative" >
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe class="iFrame" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+                <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-4 verticalHorizontalCenter position-relative" >
+                <div>
+                    <h4  class="bold">York - Foss Islands Road</h4 >
+                    <p>Foss Islands Road YO31 7UR</p>
+                    <p class="redColor">Store closed now</p>
+                    <strong> Open Today: 10:00am - 4:00pm</strong>
+                </div>   
+            </div>
+            <div class="col-md-7 col-sm-8 col-xs-8 position-relative">
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe  class="iFrame" id="gmap_canvas" src="https://maps.google.com/maps?q=2881%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+
+    </div>
+    </div>
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+</body>
+
+</html>

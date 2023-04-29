@@ -1,0 +1,87 @@
+.filter-Sort-Btn{
+    background-color: var(--green);
+    padding: 10px 25px 10px 25px;
+    border: none;
+    color: white;
+}
+
+
+.filterBox {   
+    border: 1px solid #DDDD;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+     
+}
+
+.brandsScroll {
+    padding-left: 10px;
+    padding-right: 5px;
+    height: 400px;
+    overflow: scroll;
+}
+
+
+
+.brandsScroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.brandsScroll::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 10px;
+}
+
+.filterBtn{
+    background-color: var(--green);
+    padding: 5px 15px 5px 15px;
+    border: none;
+    color: white;
+}
+
+
+
+    /* side nav bar start sm,xs start*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 999999;
+    }
+    
+    .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    }
+    .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    
+    }
+    
+    @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;z-index: 9999999;}
+    .sidenav a {font-size: 18px;z-index: 9999999;}
+    }
+
+    .collapseSlider{
+        font-size: 1.4em;
+        padding: 7px;
+        margin-bottom: 1px;
+    }
+    /* side nav bar start sm,xs  end*/    
+    

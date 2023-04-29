@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+<link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+<link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <!-- css components sheet end-->
+    <!-- css includes sheet start-->
+<link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+<link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+<link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>    
+<link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>    
+    <!-- css includes sheet end-->
+    <!-- css general sheet start-->
+<link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+    <!-- css general sheet end-->    
+    <!-- css page sheet end-->    
+<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <!-- css page sheet end-->
+    <!-- css bootstrap3.4.1 sheet end-->    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- css bootstrap3.4.1 sheet end-->
+
+<!-- css sheet start-->
+
+<!-- css swiper start-->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<!-- css swiper end-->
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+
+<!-- js file start-->
+    <!-- js header2 file start-->
+<script src="../js/includes/header2.js"></script> 
+
+    <!-- js header2 file end-->
+    <!-- js bootstrap file start-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- js bootstrap file end-->
+
+<!-- js file end-->
+
+<title>Home</title>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <!-- sidenavbar start-->
+        <%- include('../include/sidenavbar'); %>
+    <!-- sidenavbar end-->
+    
+    
+    <div id="myBody">    
+    <!--header1 Start-->
+        <%- include('../include/header1'); %>
+    <!--header1 End-->
+    <!--header1 Start-->
+        <%- include('../include/header2'); %>
+    <!--header1 End-->
+
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <img style="width: 100%; height: 150px; object-fit: cover;" class="img-responsive item active" src="https://www.valedolobo.com/upload/media/cache/4184e02eaa5e0737180f526faf15fb26_slider.jpg"> 
+            <img style="width: 100%; height: 150px; object-fit: cover;" class="img-responsive item" src="https://media.blogto.com/articles/20180906-FreshCityFarms4.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"> 
+            <img style="width: 100%; height: 150px; object-fit: cover;" class="img-responsive item" src="https://www.positive.news/wp-content/uploads/2019/01/Feat-1-1800x0-c-center.jpg"> 
+            <img style="width: 100%; height: 150px; object-fit: cover;" class="img-responsive item" src="https://ca-times.brightspotcdn.com/dims4/default/6042354/2147483647/strip/true/crop/6231x4154+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F28%2F61%2Fa3c8f1744a9ea8287d719f8015af%2F654985-sd-me-thanksgiving-new-normal-jv109.JPG"> 
+            <img style="width: 100%; height: 150px; object-fit: cover;" class="img-responsive item" src="https://www.wmcactionnews5.com/resizer/a_MD4hQbbQDhbhbCjr1byVztVZo=/1200x600/cloudfront-us-east-1.images.arcpublishing.com/raycom/GDLQPKVNSBCV3BFFXKWZCFC2EI.jpg">  
+        </div>
+    </div>
+<br>
+
+<!-- sponser -->
+<div id="sponsers" class="carousel slide mainSponsoredDiv" data-ride="carousel">
+
+    <div class="carousel-inner">
+        <div class="container item active">
+            <div class=""> 
+                <img class="sponsoredimg" src="https://i.pinimg.com/originals/03/67/58/036758d5d5f03634e1f466a5b9fcfcff.png">
+            </div>
+        </div>
+        <div class="container item">
+            <div class=""> 
+                <img class="sponsoredimg" src="https://blog.hubspot.com/hubfs/How%20to%20Explain%20Banner%20Ads%20to%20Anyone-5.png">
+            </div>
+        </div>
+        <div class="container item">
+            <div class=""> 
+                <img class="sponsoredimg" src="https://urbanbellychicago.com/wp-content/uploads/2018/09/UB-Web-Ad-National-Dumpling-Day-728x90.jpg">
+            </div>
+        </div>
+        
+        <div class="container " >
+            <small style=" float: right;">sponsored</small>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <h3 class="square">All Categories</h3>
+</div>
+<div class="container greenColor flex-start " >
+
+    <div class="swiper-container swiperCategories">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Meat & Fish">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://catalinalinkava.files.wordpress.com/2012/09/meats.jpg" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Meat & Fish</p></strong> </div>
+            </div>
+            </a> 
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Bevereges">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTca-8zTWL6cMIwKgyKJ3q8nByylX5hQ8y45Q&usqp=CAU" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Bevereges</p></strong> </div>
+            </div>
+            </a> 
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Dairy">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://www.dairyfoods.com/ext/resources/DF/2020/August/df-100/GettyImages-1194287257.jpg?1597726305" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Dairy</p></strong> </div>
+            </div>
+            </a> 
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Fruit & Vegitables">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Marketvegetables.jpg" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Fruit & Vegitables</p></strong> </div>
+            </div>
+            </a> 
+          </div>
+          
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Bread & bread spreads">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0VHHGhhWfLR6ocZqyLreXhaDJiVzK_FUsbw-G5YXYIrq8rW2ZzQi2Gv7VcC2Yr6jQDaw&usqp=CAU" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Bread & bread spreads</p></strong> </div>
+            </div> 
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Dried Goods">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/01/dried-fruit-nuts-raisins-1296x728-header-1296x728.jpg?w=1155&h=1528" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Dried Goods</p></strong> </div>
+            </div> 
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Snacks">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc-JEYLM-2kgeGROOEaaTVCnKGAVSpEVfzvaBPhY3znr2MNikBmqsme-T3TJIzIuixDno&usqp=CAU" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Snacks</p></strong> </div>
+            </div> 
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Care Products">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://5.imimg.com/data5/QS/TO/MY-44941618/personal-care-500x500.jpg" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Care Products</p></strong> </div>
+            </div> 
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/Cleaning Products">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://i2-prod.gloucestershirelive.co.uk/incoming/article2388909.ece/ALTERNATES/s1200b/1_Poundland-Promotion.jpg" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Cleaning Products</p></strong> </div>
+            </div> 
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a class="removeaHref" href="../../searchCategory/others">
+            <div class="center margin-left-20px">
+                <img  style="object-fit: cover;" src="https://content.jdmagicbox.com/comp/bhatinda/g6/9999px164.x164.161021204511.l5g6/catalogue/bathinda-foods-pvt-ltd-bhatinda-city-bhatinda-frozen-food-distributors-0hlpeff.jpg" class="img-circle" alt="Cinque Terre" width="120" height="120"> 
+                <div> <strong><p>Others</p></strong> </div>
+            </div>
+            </a> 
+          </div>
+    
+        </div>
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+    </div>
+    
+
+
+</div> 
+
+
+<div class="container-fluid "  >
+    <div class="row bigDivSpecialOffers ">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" >
+            <div class="row center">
+                <div class="specialOfferDiv" >
+                    <div class="center" style="height: 220px;">
+                        <img  style="max-height: 100%; max-width: 100%;"  class="zoom"  src="https://img2.pngio.com/frozen-food-png-1-png-image-frozen-food-png-650_361.png" >
+                    </div>
+                    <div class=" center whiteColor">
+                        <h4 >Up to 35% off on Frozen Products!!</h4>
+                        <div><button class="specialOffersButton hidden-lg hidden-md hidden-sm"> <strong>Shop Now</strong> </button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-6 hidden-xs">
+            <div class="row">
+                <div class="" >
+                    <div class="specialOfferDiv flex-space-around" >
+                        <div class=" whiteColor">
+                            <h4 >Up to 35% off on Detergents!!</h4>
+                        </div>
+                        <div class="" style="height: 110px;">
+                            <img   style="max-height: 100%;"  class="zoom"   src="https://cdnprod.mafretailproxy.com/sys-master-root/h12/haa/12936112373790" >
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="" >
+                    <div class="specialOfferDiv flex-space-around" >
+                        <div class=" whiteColor">
+                            <h4 >Up to 35% off on Hair care!!</h4>
+                        </div>
+                        <div class=""style="height: 110px;">
+                            <img  style="max-height: 100%;"   class="zoom" src="https://cdnprod.mafretailproxy.com/sys-master-root/h9a/h9a/12716399460382" >
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4  col-md-3 hidden-sm hidden-xs">
+            <div class="row">
+                <div class="" >
+                    <div class="specialOfferDiv flex-space-around" >
+                        <div class=" whiteColor">
+                            <h4 >Up to 35% off on Personal Care!!</h4>
+                        </div>
+                        <div class=""style="height: 110px;" >
+                            <img   style="max-height: 100%;"  class="zoom"  src="https://cdnprod.mafretailproxy.com/sys-master-root/h41/ha3/12936112570398" >
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="" >
+                    <div class="specialOfferDiv flex-space-around">
+                        <div class=" whiteColor">
+                            <h4 >Up to 35% off on Home care!!</h4>
+                        </div>
+                        <div class="" style="height: 110px;">
+                            <img style="max-height: 100%;"  class="zoom"    src="https://cdnprod.mafretailproxy.com/sys-master-root/h32/h9d/12936112701470" >
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div ><h3 class="square ">Snacks</h3></div>
+
+    <div class="container dealProductBox">
+        <div class="swiper-container swiperProducts">
+            <div class="swiper-wrapper">
+
+                <% if (snacks.length>0){%>
+                    <% for (let product of snacks) {%>
+              <div class="swiper-slide">
+                <div class="col-xs-12" >
+                    <div class="productBox">
+                        <a href="../../getProductById/<%=product._id%>" class="removeaHref">
+                        <% if (product.oldprice > product.currentprice){%>
+                            <div class="bgGreen whiteColor discoutProductBox center">
+                                <strong> <%= parseInt(100-( (product.currentprice*100)/ product.oldprice) ) %>  % Discount</strong>
+                            </div>
+                            <% }else{%>
+                            <div class=" noDiscoutProductBox center">
+                            </div>
+                            <% }%>
+                            <div class=" center">
+                                <img class="imageProductBox"  src="<%= product.image %>">
+                            </div>
+                            <div class="flex-start nameProductBox ">
+                                <strong><%= product.name %></strong>
+                            </div>
+                            <div class="flex-start col-xs-12">
+                                <strong><%= product.currentprice %> EG</strong>
+                                <% if(product.oldprice > product.currentprice){ %>
+                                <strong class="oldPrice"><%= product.oldprice %> EG</strong>
+                                <%}%>
+                            </div>
+                        </a>    
+                        <div class="hrProductBox">
+                            <hr>
+                        </div>
+                        <% if(admin =="true" || admin =="false"){ %>
+                            <form id="" method="POST" action="../auth/addProductToCart" >
+                        <%}else{%>
+                            <form id="" method="GET" action="../auth/login" >   
+                        <%}%> 
+
+
+                        <div class="lastRowProductBox flex-space-around">
+                    
+                            
+                          <div>
+                                <input hidden value="<%= product._id %>" name="id">
+                                
+                                <select style="padding: 5px;" required name="productQty" id="productQty">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                        </div>
+                        <div>
+                        <button type="submit" class="buttonProductBox"> ADD </button>
+                        </div>
+                                
+                                
+                        </div>
+                        </form>
+                        <% if(admin =="true"){ %>
+                        <div class="hrProductBox">
+                            <hr>
+                        </div>
+                        
+                        <div class="lastRowProductBox flex-space-around">
+                        
+                            
+                            <div>
+                                <form method="POST"  action="../admin/updateForm" class="displayInlineBlock">
+                                    <input hidden value="<%= product._id %>" name="id">
+                                    <button class="buttonProductBox" type="submit"> EDIT </button>
+                                </form> 
+                            </div>
+                            <div>
+                                <form method="POST" action="../admin/deleteProduct" class="displayInlineBlock">
+                                    <input hidden value="<%= product._id %>" name="id">
+                                    <button class="buttonProductBox" type="submit"> DELETE </button>
+                                </form>                       
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+            
+                </div>
+              </div>
+
+                <% }%>
+              <% }%>
+              
+
+
+        
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <div class="container-fluid flex-start" >
+        <div class="swiper-container swiperRecipe">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Snacks">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Snacks</h3></strong>
+                        <p>Sunday</p>
+                    </div>
+                    <div class=""  style="padding-right: 40px;" >
+                        <img height="210px" class="zoom"  src="https://freepikpsd.com/media/2019/10/snacks-png-2-1-Transparent-Images-Free.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Bread & Bread Spread">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Bread & Spreads</h3></strong>
+                        <p>Monday</p>
+                    </div>
+                    <div class=""  style="padding-right: 40px;" >
+                        <img height="150px" class="zoom"  src="https://www.freepnglogos.com/uploads/bread-png/bread-bakery-equipment-for-sale-baking-equipment-for-sale-37.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Dried Goods">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Dried Goods</h3></strong>
+                        <p>Tuesday</p>
+                    </div>
+                    <div class=""  style="padding-right: 40px;" >
+                        <img height="110px" class="zoom"  src="https://www.pngplay.com/wp-content/uploads/6/Almond-Bowl-Stack-PNG.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Meat & Fish">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Meat & Fish</h3></strong>
+                        <p>wednesday</p>
+                    </div>
+                    <div class=""  style="padding-right: 40px;" >
+                        <img height="100px" class="zoom"  src="https://www.pngkit.com/png/full/71-715078_food-seafood-salmon-png-transparent.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Fruit & Vegitables">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Fruits & Vegitables</h3></strong>
+                        <p>Thursday</p>
+                    </div>
+                    <div class=""  style="padding-right: 10px;" >
+                        <img height="140px" class="zoom"  src="https://www.pngimages.pics/images/quotes/english/general/fruit-basket-transparent-png-52650-303120.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="removeaHref" href="../../searchCategory/Dairy">
+                <div class="" >
+                    <div class="mealDiv">
+                    <div class="whiteColor   center" style="width: 150px;">
+                        <strong><h3>Dairy</h3></strong>
+                        <p>Friday</p>
+                    </div>
+                    <div class=""  style="padding-right: 40px;" >
+                        <img height="110px" class="zoom"  src="https://www.pikpng.com/pngl/b/280-2808915_china-is-australias-number-one-dairy-export-market.png" >
+                    </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+              
+
+
+        
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div ><h3 class="square ">Deals</h3></div>
+    
+    <div class="container dealProductBox">
+        <div class="">
+            <div class="swiper-container swiperProducts">
+                <div class="swiper-wrapper">
+                    <% if (deals.length>0){%>
+                        <% for (let product of deals) {%>
+                  <div class="swiper-slide">
+                    <div class="col-xs-12" >
+                        <div class="productBox">
+                            <a href="../../getProductById/<%=product._id%>" class="removeaHref">
+                            <% if (product.oldprice > product.currentprice){%>
+                                <div class="bgGreen whiteColor discoutProductBox center">
+                                    <strong> <%= parseInt(100-( (product.currentprice*100)/ product.oldprice) ) %>  % Discount</strong>
+                                </div>
+                                <% }else{%>
+                                <div class=" noDiscoutProductBox center">
+                                </div>
+                                <% }%>
+                                <div class=" center">
+                                    <img class="imageProductBox"  src="<%= product.image %>">
+                                </div>
+                                <div class="flex-start nameProductBox ">
+                                    <strong><%= product.name %></strong>
+                                </div>
+                                <div class="flex-start col-xs-12">
+                                    <strong><%= product.currentprice %> EG</strong>
+                                    <% if(product.oldprice > product.currentprice){ %>
+                                    <strong class="oldPrice"><%= product.oldprice %> EG</strong>
+                                    <%}%>
+                                </div>
+                            </a>    
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                
+                            <% if(admin =="true" || admin =="false"){ %>
+                                <form id="" method="POST" action="../auth/addProductToCart" >
+                            <%}else{%>
+                                <form id="" method="GET" action="../auth/login" >   
+                            <%}%> 
+    
+    
+                            <div class="lastRowProductBox flex-space-around">
+                        
+                                
+                              <div>
+                                    <input hidden value="<%= product._id %>" name="id">
+                                    <select style="padding: 5px;" required name="productQty" id="productQty">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                            </div>
+                            <div>
+                            <button type="submit" class="buttonProductBox"> ADD </button>
+                            </div>
+                                    
+                                    
+                            </div>
+                            </form>
+
+
+
+
+                            <% if(admin =="true"){ %>
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                            
+                            <div class="lastRowProductBox flex-space-around">
+                            
+                                
+                                <div>
+                                    <form method="POST"  action="../admin/updateForm" class="displayInlineBlock">
+                                        <input hidden value="<%= product._id %>" name="id">
+                                        <button class="buttonProductBox" type="submit"> EDIT </button>
+                                    </form> 
+                                </div>
+                                <div>
+                                    <form method="POST" action="../admin/deleteProduct" class="displayInlineBlock">
+                                        <input hidden value="<%= product._id %>" name="id">
+                                        <button class="buttonProductBox" type="submit"> DELETE </button>
+                                    </form>                       
+                                </div>
+                            </div>
+                            <%}%>
+                        </div>
+                
+                    </div>
+                  </div>
+    
+                    <% }%>
+                  <% }%>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    </div>
+
+    <div class="container-fluid off-50" >
+        <div class="flex-start">
+            <div class="col-md-5 col-xs-6 bgGreen whiteColor">
+                <h1>50 EG 0FF!!</h1>
+                <h4>On Your First Order</h4>
+                <p>valid on order over 700 EG</p>
+            </div>
+            <div class="col-md-7 col-xs-6 no-padding-margin">
+                <img src="https://previews.123rf.com/images/baibakova/baibakova1804/baibakova180400048/99462418-traditional-turkish-cuisine-top-view-middle-eastern-food.jpg"  class="off-50-img" >
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div ><h3 class="square ">Ready Meals</h3></div>
+    
+        <div class="container">
+            <div class="">
+                <div class="swiper-container swiperProducts">
+                    <div class="swiper-wrapper">
+                        
+                        <% if (readyMeals.length>0){%>
+                            <% for (let product of readyMeals) {%>
+                      <div class="swiper-slide">
+                        <div class="col-xs-12" >
+                            <div class="productBox">
+                                <a href="../../getReadyMealById/<%=product._id%>" class="removeaHref">
+                                <% if (product.oldprice > product.currentprice){%>
+                                    <div class="bgGreen whiteColor discoutProductBox center">
+                                        <strong> <%= parseInt(100-( (product.currentprice*100)/ product.oldprice) ) %>  % Discount</strong>
+                                    </div>
+                                    <% }else{%>
+                                    <div class=" noDiscoutProductBox center">
+                                    </div>
+                                    <% }%>
+                                    <div class=" center">
+                                        <img class="imageProductBox"  src="<%= product.image %>">
+                                    </div>
+                                    <div class="flex-start nameProductBox ">
+                                        <strong><%= product.name %></strong>
+                                    </div>
+                                    <div class="flex-start col-xs-12">
+                                        <strong><%= product.currentprice %> EG</strong>
+                                        <% if(product.oldprice > product.currentprice){ %>
+                                        <strong class="oldPrice"><%= product.oldprice %> EG</strong>
+                                        <%}%>
+                                    </div>
+                                </a>    
+                                <div class="hrProductBox">
+                                    <hr>
+                                </div>
+                    
+                                <% if(admin =="true" || admin =="false"){ %>
+                                    <form id="" method="POST" action="../auth/addMealToCart" >
+                                <%}else{%>
+                                    <form id="" method="GET" action="../auth/login" >   
+                                <%}%> 
+        
+        
+                                <div class="lastRowProductBox flex-space-around">
+                            
+                                    
+                                  <div>
+                                        <input hidden value="<%= product._id %>" name="id">
+                                        
+                                        <select style="padding: 5px;" required name="productQty" id="productQty">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                </div>
+                                <div>
+                                <button type="submit" class="buttonProductBox"> ADD </button>
+                                </div>
+                                        
+                                        
+                                </div>
+                                </form>
+
+
+
+                                <% if(admin =="true"){ %>
+                                <div class="hrProductBox">
+                                    <hr>
+                                </div>
+                                
+                                <div class="lastRowProductBox flex-space-around">
+                                
+                                    
+                                    <div>
+                                        <form method="POST"  action="../admin/updateFormReadyMeals" class="displayInlineBlock">
+                                            <input hidden value="<%= product._id %>" name="id">
+                                            <button class="buttonProductBox" type="submit"> EDIT </button>
+                                        </form> 
+                                    </div>
+                                    <div>
+                                        <form method="POST" action="../admin/deleteReadyMeal" class="displayInlineBlock">
+                                            <input hidden value="<%= product._id %>" name="id">
+                                            <button class="buttonProductBox" type="submit"> DELETE </button>
+                                        </form>                       
+                                    </div>
+                                </div>
+                                <%}%>
+                            </div>
+                    
+                        </div>
+                      </div>
+        
+                        <% }%>
+                      <% }%>
+
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="../js/sliders.js"></script> 
+
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+    
+
+
+
+      
+    
+    
+    
+</body>
+</html>

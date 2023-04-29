@@ -1,0 +1,30 @@
+
+.scrollDiv{
+    height: 450px;
+    scrollbar-color: red yellow;
+    overflow-y: scroll;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.scrollDiv::-webkit-scrollbar {
+    width: 5px;
+}
+.fontBigger{
+    font-size: 1.2em;
+}
+.scrollDiv::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 10px;
+}
+
+.welcomeToYelsabawyMarket{
+	text-transform: uppercase;
+	background: linear-gradient(to right, var(--green) 30%, var(--yellow) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

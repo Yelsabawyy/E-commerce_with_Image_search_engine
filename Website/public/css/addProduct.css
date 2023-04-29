@@ -1,0 +1,76 @@
+
+.productInput{
+    width: 355px;
+    background-color: white;
+    padding:5px ; 
+    padding-left:10px ; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+    border:1px solid rgb(138, 138, 138)
+}
+
+.productInput::placeholder{
+    color: rgb(95, 95, 95);
+    padding-left: 5px;
+}
+
+    
+.productInputInsideDiv{
+    margin: auto;
+    margin-top:20px;
+    width: 355px;
+    background-color: white;
+    padding:10px ; 
+    border:1px solid rgb(138, 138, 138);
+
+    
+}
+
+.storeInputInsideDiv{
+    
+    width: 310px;
+    background-color: white;
+    padding:5px ; 
+    padding-left:10px ; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:1px solid rgb(138, 138, 138)
+}
+
+.divInput{
+    display: inline-block;
+    text-align: center;
+    width: 355px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.textArea{
+    resize: vertical;
+     height: 150px;
+}
+
+/* image input */
+.tablink {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+  }
+  
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent1 {
+    color: white;
+    display: block;
+  }
+  .tabcontent2 {
+    color: white;
+    display: none;
+  }
+
+ 

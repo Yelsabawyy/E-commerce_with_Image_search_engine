@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>   
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/myAccount.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js myAccount file start-->
+    <script src="../js/myAccount.js"></script> 
+        <!-- js myAccount file end-->
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>My Account</title>
+</head>
+<body>
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+    <div class="row-eq-height myAccountContainer ">
+
+    <div class="tab">
+        <button class="tablinks active" onclick="changeAction(event, 'myDetails')">My Account</button>
+        <button class="tablinks " onclick="changeAction(event, 'favourite')">Favourite</button>
+        <form action="../trackOrder" method="GET">
+            <button class="tablinks" type="submit">My Orders</button>
+        </form>
+        <button class="tablinks" onclick="changeAction(event, 'updatePassword')">Update password</button>
+        <button class="tablinks" onclick="changeAction(event, 'changeAddress')">Change Address</button>
+        <form action="../auth/logout" method="POST">
+            <button>Sign Out</button>
+        </form>
+      </div>
+      
+      <div id="myDetails" class="tabcontentMyDetails tabcontent padding-30px">
+
+        <% if(cantChangePassword==="true"){%>
+            <h3 class="redColor center"> Can't Change Password... <%= message %> </h3>
+        <%}%>
+
+        <h3>My Details:</h3> 
+        <p class="bold titleMyAccount blackColor">Personal Information:</p> 
+        <hr class="hr">
+        <h4 class="blackColor">First Name:</h4>
+        <p><%= user.firstname%></p>
+        <h4 class="blackColor">Last Name:</h4>
+        <p><%= user.lastname%></p>
+        <h4 class="blackColor">Address:</h4>
+        <p><%= user.address%></p>
+        <h4 class="blackColor">Phone Number:</h4>
+        <p><%= user.phoneNumber%></p>
+
+        <p class="bold titleMyAccount blackColor" >Email Address:</p> 
+        <hr class="hr">
+        <h4 class="blackColor">Email:</h4>
+        <p><%= user.email%></p>
+      </div>
+      <div id="favourite" class="tabcontentFavourite tabcontent padding-30px">
+        <h3 class="greenColor bold center"> Favourite</h3>
+        <div class="">
+            <% if (!meals.length>0 && !products.length>0){ %>
+                <div class="col-xs-12 center">
+                    <h1>No Products Found!</h1>
+                </div>
+            <%}%>
+
+           
+            
+
+            <% if (products.length>0){ %>
+                <% for (let product of products) {%>
+                    <div class=" col-md-4 col-sm-6">
+                        <div class="productContainer">
+                            <div class="center">
+                                <img class="imageProductBox"  src="<%=product.productId.image%>">
+                            </div>
+                            <div>
+                            <div class="name ">
+                                <strong><%=product.productId.name%></strong>
+                            </div>
+        
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                            <div class="col-xs-12">
+                                <strong><%=product.productId.currentprice%> EG</strong> <strong class="oldPrice"><%=product.productId.oldprice%> EG</strong>
+                            </div>
+                            <br><br>
+                            <div class="lastRowProductBox flex-space-around">
+                                
+                                <div>
+                                    <form action="../auth/addproductToCart" method="POST">
+                                        <input hidden value="<%=product.productId._id%>" name="id">
+                                        <input hidden value="1" name="productQty">
+                                        <button class="buttonProductBox"> ADD </button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form action="../auth/removeProductToFavourite" method="POST">
+                                        <input hidden value="<%=product.productId._id%>" name="id">
+                                        <button class="buttonProductBox"> REMOVE </button>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+            
+    
+            <%} }%>
+    
+            <% if (meals.length>0){ %>
+                <% for (let meal of meals) {%>
+                    <div class=" col-md-4 col-sm-6">
+                        <div class="productContainer">
+                            <div class="center">
+                                <img class="imageProductBox"  src="<%=meal.readyMealId.image%>">
+                            </div>
+                            <div>
+                            <div class="name ">
+                                <strong><%=meal.readyMealId.name%></strong>
+                            </div>
+        
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                            <div class="col-xs-12">
+                                <strong><%=meal.readyMealId.currentprice%> EG</strong> <strong class="oldPrice"><%=meal.readyMealId.oldprice%> EG</strong>
+                            </div>
+                            <br><br>
+                            <div class="lastRowProductBox flex-space-around">
+                                
+                                <div>
+                                    <form action="../auth/addMealToCart" method="POST">
+                                        <input hidden value="<%=meal.readyMealId._id%>" name="id">
+                                        <input hidden value="1" name="productQty">
+                                        <button class="buttonProductBox"> ADD </button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form action="../auth/removeMealToFavourite" method="POST">
+                                        <input hidden value="<%=meal.readyMealId._id%>" name="id">
+                                        <button class="buttonProductBox"> REMOVE </button>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+            <%} }%>
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+      
+      <div id="updatePassword" class="tabcontentUpdatePassword tabcontent center padding-30px" >
+        <form action="../auth/changePasswordFromMyAccount" method="POST">
+            <h3 class="greenColor bold"> Update Password</h3>
+            <% if(cantChangePassword==="true"){%>
+                <p class="redColor"> <%= message %> </p>
+            <%}%>
+            <input type="password" name="oldPassword" class="input" placeholder="Current password"><br>
+            <input type="password" name="password" class="input" placeholder="New password"><br>
+            <input type="password" name="confirmPassword" class="input" placeholder="Confirm New password"><br>
+            <button class="formButton"> update password </button>
+        </form>
+      </div>
+      <div id="changeAddress" class="tabcontentChangeAddress tabcontent center padding-30px" >
+        <form action="../auth/changeAddressFromMyAccount" method="POST">
+            <h3 class="greenColor bold"> Change Address:</h3>
+            <input type="text" class="input" placeholder="new Address" name="address"><br>
+            <button class="formButton"> Change Address </button>
+        </form>
+      </div>
+
+    </div>
+    </div>
+
+      <!--footer Start-->
+      <%- include('../include/footer'); %>
+      <!--footer End-->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

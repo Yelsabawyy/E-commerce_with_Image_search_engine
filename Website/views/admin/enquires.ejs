@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <!-- css sheet start-->
+        
+            <!-- css components sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+                <!-- css components sheet end-->
+                <!-- css includes sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>  
+            <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>     
+                <!-- css includes sheet end-->
+                <!-- css general sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+                <!-- css general sheet end-->    
+                <!-- css page sheet end-->    
+            <link rel="stylesheet" type="text/css" href="../css/enquires.css"/>
+                <!-- css page sheet end-->
+                <!-- css bootstrap3.4.1 sheet end-->    
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <!-- css bootstrap3.4.1 sheet end-->
+            
+            <!-- css sheet start-->
+            
+            <!-- js file start-->
+                <!-- js header2 file start-->
+            <script src="../js/includes/header2.js"></script> 
+                <!-- js header2 file end-->
+                <!-- js bootstrap file start-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <!-- js bootstrap file end-->
+            
+            <!-- js file end-->
+            
+            <title>Messages</title>
+    </head>
+
+<body>
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+
+<% if(messages.length > 0){ %>
+    <br>
+        <div class="container ">
+            <table class="table">
+            <thead>
+                
+                <th class="center">Name</th>
+                <th class="center">Phone</th>
+                <th class="center">Company Name</th>
+                <th class="center">Country</th>
+                <th class="center">Email</th>
+                <th class="center">Message</th>
+            </thead>
+            <tbody> 
+                <% for(let message of messages){ %>              
+                <tr>
+                
+                <td class="center "><%= message.name %> </td>
+                <td class="center "><%= message.phone %> </td>
+                <td class="center"><%= message.companyName %> </td>
+                <td class="center"><%= message.country %> </td>
+                <td class="center"><%= message.email %> </td>
+                <td class="center"><%= message.message %> </td>
+                </tr>
+                <% } %>
+            </tbody>
+            </table>
+        </div>
+<% }else{%>
+    
+        <h3 class="center">
+            No New Messages Found <br><br>
+            <a  class=""  href="../admin/allEnquires"> See Old Messages From Here</a>
+        </h3>
+<% } %>
+                
+		
+</div>
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+</body>
+
+</html>

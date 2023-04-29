@@ -1,0 +1,153 @@
+
+.path{
+    background-color: rgba(226, 226, 226, 0.486);
+    padding: 5px;
+    margin: 5px;
+}
+.home::before{
+    content: "";
+    font-size: 1.5em;
+    margin-left:10px ;
+    margin-right:10px ;
+    font-weight: bolder;
+}
+.category::before{
+    content: "\203A";
+    font-size: 1.5em;
+    margin-left:10px ;
+    margin-right:10px ;
+    font-weight: bolder;
+}
+.productImage{
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+    height: 350px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.name{
+    margin: 10px;
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+.description{
+    margin: 20px;
+}
+
+.price{
+    margin: 20px;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+.onlyLeft{
+    margin-left: 20px;
+
+    margin-top: 0px;
+    color: rgb(180, 0, 0);
+    font-weight: bolder;
+}
+.btnsDiv{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.orderDiv{
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px;
+}
+.customerComments{
+    color: black;
+}
+.yourComment{
+    color: black;
+}
+.userName{
+    margin: 10px;
+    font-size: 1.1em;
+    font-weight: bolder;
+    color: black;
+}
+
+.userComment{
+    margin: 10px;
+}
+.comment{
+    padding: 4px;
+    margin: 5px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+}
+.similarProduct{
+    margin: 5px 5px 25px 5px;
+}
+.recentProduct{
+    margin: 5px 5px 25px 5px;
+}
+.ratingCircle {
+    height: 60px;
+    width: 60px;
+    padding-top: 15px;
+    background-color: #bbb;
+    color: black;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align:middle;
+    text-align: center;
+    font-size: 20px;
+  }
+
+
+.progress{
+    height: 10px !important;
+}
+
+.progress-bar{
+    background-color: var(--green) !important;
+}
+.favourite {
+    fill: grey;
+}
+.favouriteChecked {
+fill: var(--yellow);
+  }
+
+/* star rating */
+.rate {
+    display: inline-block;
+    text-align: center;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '\2605';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}

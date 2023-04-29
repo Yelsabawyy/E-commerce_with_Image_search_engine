@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/recipe.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js recipe file start-->
+    <script src="../js/recipe.js"></script> 
+        <!-- js recipe file end-->
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+
+        <!-- css swiper start-->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<!-- css swiper end-->
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+    
+    <!-- js file end-->
+    
+    <title><%= recipe.name%></title>
+</head>
+<body>
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+    <div class="container path flex-start">
+        <div class="home"><a href="../../" class="removeaHref">Home</a></div>
+        <div class="category"> <%= recipe.name %></div>
+    </div>
+    <div class="container">
+        <div class="col-md-5 col-sm-6 col-xs-12 ">
+            <div class="row center">
+                <img class="productImage" src=" <%= recipe.image %>">
+            </div>
+            
+        </div>
+        <div class="col-md-7 col-sm-6">
+
+            <div class="name">
+                <%= recipe.name %>
+            </div>    
+            <div class="timeDiv">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="vertical-center bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <b class="vertical-center margin-left-20px">Preparation time: <span><%= recipe.preparationTime %></span></b>
+            </div>
+            <div class="ingredients ">
+                <p><strong>Ingredients</strong></p>
+                <ol>
+                    <% for(var i = 0; i < recipe.Ingredients.length; i++){%>
+                        <li><%= recipe.Ingredients[i] %></li>
+                    <%}%>
+                </ol>
+             </div> 
+        </div>
+    </div>
+    <div class="container howtoMakeItDiv">
+        <div><h3 class="bold">How to Make It</h3></div>  
+        <% for(var i = 0; i < recipe.Steps.length; i++){%>
+            <div><h4 class="bold">step <%= i%> :</h4></div>     
+            <div><p ><%= recipe.Steps[i] %></p></div>     
+        <%}%>   
+        
+    </div>
+    <div class="container">
+        <div class="similarProduct">
+            <h4>Products:</h4>
+        </div>
+        <div class="container dealProductBox">
+            <div class="swiper-container swiperProducts">
+                <div class="swiper-wrapper">
+    
+                    <% if (products.length>0){%>
+                        <% for (let product of products) {%>
+                  <div class="swiper-slide">
+                    <div class="col-xs-12" >
+                        <div class="productBox">
+                            <a href="../../getProductById/<%=product._id%>" class="removeaHref">
+                            <% if (product.oldprice > product.currentprice){%>
+                                <div class="bgGreen whiteColor discoutProductBox center">
+                                    <strong> <%= parseInt(100-( (product.currentprice*100)/ product.oldprice) ) %>  % Discount</strong>
+                                </div>
+                                <% }else{%>
+                                <div class=" noDiscoutProductBox center">
+                                </div>
+                                <% }%>
+                                <div class=" center">
+                                    <img class="imageProductBox"  src="<%= product.image %>">
+                                </div>
+                                <div class="flex-start nameProductBox ">
+                                    <strong><%= product.name %></strong>
+                                </div>
+                                <div class="flex-start col-xs-12">
+                                    <strong><%= product.currentprice %> EG</strong>
+                                    <% if(product.oldprice > product.currentprice){ %>
+                                    <strong class="oldPrice"><%= product.oldprice %> EG</strong>
+                                    <%}%>
+                                </div>
+                            </a>    
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                
+                            <% if(admin =="true" || admin =="false"){ %>
+                                <form id="" method="POST" action="../auth/addProductToCart" >
+                            <%}else{%>
+                                <form id="" method="GET" action="../auth/login" >   
+                            <%}%> 
+    
+    
+                            <div class="lastRowProductBox flex-space-around">
+                        
+                                
+                              <div>
+                                    <input hidden value="<%= product._id %>" name="id">
+                                    
+                                    <select style="padding: 5px;" required name="productQty" id="productQty">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                            </div>
+                            <div>
+                            <button type="submit" class="buttonProductBox"> ADD </button>
+                            </div>
+                                    
+                                    
+                            </div>
+                            </form>
+
+
+                            <% if(admin =="true"){ %>
+                            <div class="hrProductBox">
+                                <hr>
+                            </div>
+                            
+                            <div class="lastRowProductBox flex-space-around">
+                            
+                                
+                                <div>
+                                    <form method="POST"  action="../admin/updateForm" class="displayInlineBlock">
+                                        <input hidden value="<%= product._id %>" name="id">
+                                        <button class="buttonProductBox" type="submit"> EDIT </button>
+                                    </form> 
+                                </div>
+                                <div>
+                                    <form method="POST" action="../admin/deleteProduct" class="displayInlineBlock">
+                                        <input hidden value="<%= product._id %>" name="id">
+                                        <button class="buttonProductBox" type="submit"> DELETE </button>
+                                    </form>                       
+                                </div>
+                            </div>
+                            <%}%>
+                        </div>
+                
+                    </div>
+                  </div>
+    
+                    <% }%>
+                  <% }%>
+                  
+    
+    
+            
+                </div>
+    
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- <div class="container">
+        <div class="recentProduct">
+            <h4>Recently viewed:</h4>
+        </div>
+        <div>
+            <div class="col-lg-2-5 col-md-3 col-sm-4 col-xs-6">
+                <div class="productBox">
+                    <div class="bgGreen whiteColor discoutProductBox center">
+                        <strong> 20% Discount</strong>
+                    </div>
+                    <div class=" center">
+                        <img class="imageProductBox"  src="https://th.bing.com/th/id/Rdf77cdd67c0779f3e659d1a12681b516?rik=zMvXvOU7xYljQQ&pid=ImgRaw">
+                    </div>
+                    <div class="flex-start nameProductBox ">
+                        <strong>Kitkat chocolate price please</strong>
+                    </div>
+                    <div class="flex-start col-xs-12">
+                        <strong>100 EG</strong> <strong class="oldPrice">100 EG</strong>
+                    </div>
+                    <div class="hrProductBox">
+                        <hr>
+                    </div>
+        
+                    <div class="lastRowProductBox flex-space-around">
+                    
+                        <div>
+                        <form method="POST" action="" >
+                            <input hidden value="" name="id">
+                            <input type="number" value="1" name="productQty" id="productQty" min="0" max="10" class="quantityOfDeal">
+                          
+                        </form>
+                        </div>
+                        <div>
+                        <button class="buttonProductBox"> ADD </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div> -->
+    </div>
+
+    <script src="../js/sliders.js"></script> 
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+
+</body>
+</html>

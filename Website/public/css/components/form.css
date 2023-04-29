@@ -1,0 +1,39 @@
+.formDiv{
+    margin: 15px;
+}
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;  
+}
+.logoFormContainer{
+    border-top-left-radius: 15px ;
+    border-top-right-radius: 15px;
+    padding: 10px;
+}
+.verticalHorizontalCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.formContainer{
+    border-radius: 15px;
+    box-shadow: 1px 2px 2px 2px #e4e4e4;
+    overflow: hidden;
+}
+
+
+
+.activeForm{
+    padding-bottom: 15px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    width: fit-content;
+}
+
+.formButton{
+    background-color: #003728;
+    padding: 5px 25px 5px 25px;
+    color: white;
+    border: none;
+}

@@ -1,0 +1,124 @@
+<div class="footerPosition">
+<div class="container-fluid bgGreen whiteColor padding-15px margin-top-20px" >
+    <div class="container margin-top-10px margin-bottom-10px">
+
+      <div class="col-lg-3 col-sm-6 col-xs-6 " style="height: 120px;">
+            <div class="row">
+              <p class="">
+                <strong>
+                  Contact Us
+                </strong>
+
+            </div>    
+            <div class="row">
+              <p class="">
+                
+                Youssef Elsabawy
+              </p>
+            </div>        
+            <div class="row">
+              <p class="">
+                yelsabawyy@gmail.com
+              </p>
+            </div>
+    
+            <div class="row">
+              <p class="">
+                (+20) 01283230322
+              </p>
+            </div>
+
+      </div>
+    
+    
+      <div class="col-lg-3 col-sm-6 col-xs-6 " style="height: 120px;">
+            <div class="row">
+              <p class="">
+                <strong>
+                            Account      
+                </strong>
+              </p>
+            </div>
+            <% if(admin =="true" || admin =="false"){ %>
+              <div class="row">            
+                <a  class=""><a class="removeaHref aFooter" href="../auth/myAccount">My Account</a> </a>
+              </div>
+              <div class="row">            
+                <a  class=""><a class="removeaHref aFooter" href="../auth/cart">Cart</a></a>
+              </div>
+          <% }else{ %> 
+            <div class="row">            
+              <a  class=""><a class="removeaHref aFooter" href="../auth/register">Register</a> </a>
+            </div>
+            <div class="row">            
+              <a  class=""><a class="removeaHref aFooter" href="../auth/login">Login</a></a>
+          </div>   
+          <% } %> 
+            
+
+      </div>
+    
+        <div class="col-lg-3 col-sm-6 col-xs-6 " style="height: 120px;">
+          <div class="row">
+            <p class="">
+              <strong>
+                  About               
+              </strong>
+            </p>
+          </div>
+          <div class="row">            
+            <a  class=""><a class="removeaHref aFooter" href="../FAQs">FAQs</a></a>
+          </div>   
+          <div class="row">            
+              <a  class=""><a class="removeaHref aFooter" href="../help">Terms and Condition</a></a>
+          </div>
+          <div class="row">            
+            <a  class=""><a class="removeaHref aFooter" href="../storeLocation">Store Location</a></a>
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-sm-6 col-xs-6 " style="height: 120px;">
+        <div class="row">
+          <p class="">
+            <strong>
+                Hotline               
+            </strong>
+          </p>
+        </div>
+
+        <div class="row">            
+          <p class="">19319</p>
+        </div> 
+      </div> 
+      
+    
+  </div>
+  </div>
+
+  
+    <div class="container-fluied center darkGreenBg whiteColor padding-10px" >
+      Powered By Youssef Elsabawy &copy; 2020
+    </div>
+  </div>
+
+  <!-- <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+  <script>
+      console.log("here socket");
+      
+              var socket = io('http://localhost:3052');
+              socket.on('message', function (data) {
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log("data.unseenMessages.length")
+                console.log(data.unseenMessages.length)
+                document.getElementById("unseenMessagesValue").innerHTML =data.unseenMessages.length;
+                
+              });
+  </script> -->
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <!-- <script src="http://41.45.141.21/socket.io/socket.io.js"></script> -->

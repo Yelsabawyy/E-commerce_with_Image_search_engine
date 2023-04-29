@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <!-- css sheet start-->
+        
+            <!-- css components sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+                <!-- css components sheet end-->
+                <!-- css includes sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+                <!-- css includes sheet end-->
+                <!-- css general sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+                <!-- css general sheet end-->    
+                <!-- css page sheet end-->    
+            <link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+                <!-- css page sheet end-->
+                <!-- css bootstrap3.4.1 sheet end-->    
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <!-- css bootstrap3.4.1 sheet end-->
+            
+            <!-- css sheet start-->
+            
+            <!-- js file start-->
+                <!-- js header2 file start-->
+            <script src="../js/includes/header2.js"></script> 
+                <!-- js header2 file end-->
+                <!-- js bootstrap file start-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <!-- js bootstrap file end-->
+            
+            <!-- js file end-->
+
+            <!-- Data Tables Plugin -->
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">  
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            
+        <title>Cart</title>
+    </head>
+
+<body>
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+
+
+
+
+<div class="container-fluid">
+    <!-- Table Block start -->
+<div class="tableDiv">
+<br>
+
+    <div class="tableDiv">
+        <% if (orders.length > 0){ %>
+          <table class="table" id="myTable">
+            <thead>
+            <tr>
+              <th class="hideOnSmallScreens">ID</th>
+              <th>Date</th>
+              <th class="hideOnSmallScreens hideOnMediumScreens">Adress</th>
+              <th>Cart</th>
+              <th>Price</th>
+              <th>Ready</th>
+              <th>Shipped</th>
+              <th>Arrived</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% for(let order of orders){ %>
+            <tr>
+              <td class=" ">
+                <%= order._id %>
+              </td>
+              <td class=" ">
+                <%= order.date %>
+              </td>
+              <td class=" ">
+                <%= order.user.address %>              
+              </td>
+              <td class=" ">
+                <% if(order.products.items.length>0){ %>
+                <% for(let productDoc of order.products.items){ %>
+                  <%= productDoc.productId %> (<%= productDoc.quantity %>)
+                  <br>
+                <% } }%>
+                
+                <% if(order.products.mealsItems.length>0){ %>
+                <% for(let productDoc of order.products.mealsItems){ %>
+                    <%= productDoc.readyMealId %> (<%= productDoc.quantity %>)
+                  <br>
+                <% } }%>
+                </td>
+              <td class=" ">
+                <%= order.orderPrice %>
+              </td>
+              <!-- Ready -->
+              <td class=" ">
+                <form method="POST" action="../admin/orderReady" class="displayInlineBlock">
+                  <input type="hidden" name="orderId" value="<%= order._id %>">
+                  <% if( order.ready || order.shipped || order.arrived){ %>
+                    <button class="continueBtn" style="background-color: gray;" name="Ready" disabled> Ready</button>
+                <% } else { %>
+                    <button type="submit" class="continueBtn" name="Ready" > Ready</button>
+                    <% } %>
+
+                </form>
+              </td>
+              <!-- Shipped -->
+              <td class=" ">
+                <form method="POST" action="../admin/orderShipped" class="displayInlineBlock">
+                  <input type="hidden" name="orderId" value="<%= order._id %>">
+                  <% if( order.arrived || order.shipped){ %>
+                    <button class="continueBtn" style="background-color: gray;" name="Shipped" disabled> Shipped</button>
+                  <% } else { %>
+                    <button type="submit" class="continueBtn" name="Arrived" > Shipped</button>
+                    <% } %>
+                </form>
+              </td>
+
+              <!-- Arrived -->
+              <td class=" ">
+                <form  method="POST" action="../admin/orderArrived" class="displayInlineBlock">
+                  <input type="hidden" name="orderId" value="<%= order._id %>">
+                  <% if( order.arrived ){ %>
+                    <button class="continueBtn " style="background-color: gray;" name="Arrived" disabled> Arrived</button>
+                  <% } else { %>
+                    <button type="submit" class="continueBtn " name="Arrived" > Arrived</button>
+                    <% } %>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+            </tbody>
+          </table>
+        <% } else { %>
+            <h1 class="center verticalCenter">No Orders Found!</h1>
+        <% } %> 
+      </div>        
+    
+    <!-- Table Block end -->
+
+    <script src="../js/myOrders.js"></script>
+
+</div>        
+
+<!-- Table Block end -->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+
+</body>
+
+</html>

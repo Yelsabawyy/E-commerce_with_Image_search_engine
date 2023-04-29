@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/> 
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>      
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/addProduct.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js addProductfile start-->
+    <script src="../js/addProduct.js"></script> 
+        <!-- js addProduct file end-->
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>Add Product</title>
+</head>
+<body>
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+
+<% if(update=== "false"){ %>
+    <% if(addProduct=== "true"){ %>
+        <div class="alert alert-success center">
+            <strong>Success!</strong> Add Product successfully.
+        </div>
+        
+    <% }else if(addProduct=== "false"){ %>
+    <div class="alert alert-danger center">
+        <strong>Failed!</strong> Can't Add Product!!
+    </div>
+    <% }%> 
+<% }%> 
+
+
+<div class="container formDiv " >
+    <div class=" row-eq-height formContainer">
+        <div class="col-lg-4 col-md-4 hidden-sm hidden-xs bgGreen verticalHorizontalCenter">
+            <div class="logoFormContainer whiteColor center">Yelsabawy</div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-12 no-padding-margin">
+            <div class="col-sm-12 col-xs-12 hidden-lg hidden-md bgGreen verticalHorizontalCenter" >
+                <div class="logoFormContainer whiteColor" >Yelsabawy</div>
+            </div>
+            <div class="row flex-space-around greenColor padding-10px">
+                <div class="greenColor activeForm" >
+                    <strong>
+                        <% if(update=== "false"){ %> 
+                            Add Product 
+                        <% } else { %> Update Product <%}%>        
+                               
+                    </strong>
+            </div>
+            </div>
+
+            <div class="center padding-bottom-20px" >
+                <form class="" action="<%- update=== 'false' ? '../../admin/addProduct' : '../../admin/updateProduct' %>" method="POST">
+                    <% if (update=== "true"){ %>
+                        <input hidden value="<%= product._id %>" name="id">
+                    <% } %>
+
+                    <input type="text" class="productInput" placeholder="Name" name="name" required  value="<%- update=== 'false' ? '' : product.name %>" ><br>
+                   
+                    <select  class="productInput" name="category" required id="categoryAddProduct"  onchange="chooseSubCategories();"> 
+                        <option disabled selected value="category" >Category</option>
+                        <option  value="Meat & Fish"
+                        <% if(update=== "true"){ %>  <%= product.category == 'Meat & Fish' ? 'selected' : ''%> <% } %>  >Meat & Fish</option>
+                        <option  value="Bevereges" <% if(update=== "true"){ %>  <%= product.category == 'Bevereges' ? 'selected' : ''%> <% } %> >Bevereges</option>
+                        <option  value="Dairy" <% if(update=== "true"){ %>  <%= product.category == 'Dairy' ? 'selected' : ''%> <% } %>  >Dairy</option>
+                        <option  value="Fruit & Vegitables" <% if(update=== "true"){ %>  <%= product.category == 'Fruit & Vegitables' ? 'selected' : ''%> <% } %> >Fruit & Vegitables</option>
+                        <option  value="Bread & bread spreads" <% if(update=== "true"){ %>  <%= product.category == 'Bread & bread spreads' ? 'selected' : ''%> <% } %> >Bread & bread spreads</option>
+                        <option  value="Dried Goods" <% if(update=== "true"){ %>  <%= product.category == 'Dried Goods' ? 'selected' : ''%> <% } %> >Dried Goods</option>
+                        <option  value="Snacks" <% if(update=== "true"){ %>  <%= product.category == 'Snacks' ? 'selected' : ''%> <% } %> >Snacks</option>
+                        <option  value="Care & Products" <% if(update=== "true"){ %>  <%= product.category == 'Care & Products' ? 'selected' : ''%> <% } %> >Care & Products</option>
+                        <option  value="Cleaning Products" <% if(update=== "true"){ %>  <%= product.category == 'Cleaning Products' ? 'selected' : ''%> <% } %> >Cleaning Products</option>
+                        <option  value="others" <% if(update=== "true"){ %>  <%= product.category == 'others' ? 'selected' : ''%> <% } %> >others</option>
+                        
+
+                    </select><br>
+                    
+                    <select class="productInput" name="subCategory"  id="SubCategories"> 
+                        <div>
+                            <% if(update=== "true"){ %> 
+                                <% if(product.category=== "Meat & Fish"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="Fish" <% if(update=== "true"){ %>  <%= product.subCategory == 'Fish' ? 'selected' : ''%> <% } %> >Fish</option><br>
+                                    <option  value="Chicken"  <% if(update=== "true"){ %>  <%= product.subCategory == 'Chicken' ? 'selected' : ''%> <% } %> >Chicken</option><br>
+                                    <option  value="Meat" <% if(update=== "true"){ %>  <%= product.subCategory == 'Meat' ? 'selected' : ''%> <% } %>>Meat</option><br>
+                                    <option  value="pork"<% if(update=== "true"){ %>  <%= product.subCategory == 'pork' ? 'selected' : ''%> <% } %>>pork</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Bevereges"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="soda" <% if(update=== "true"){ %>  <%= product.subCategory == 'soda' ? 'selected' : ''%> <% } %>>soda</option><br>
+                                    <option  value="juice"  <% if(update=== "true"){ %> <%= product.subCategory == 'juice' ? 'selected' : ''%> <% } %>>juice</option><br>
+                                    <option  value="coffee/tea" <% if(update=== "true"){ %>  <%= product.subCategory == 'coffee/tea' ? 'selected' : ''%> <% } %>>coffee/tea</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Dairy"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="cheeses" <% if(update=== "true"){ %>  <%= product.subCategory == 'cheeses' ? 'selected' : ''%> <% } %>>cheeses</option><br>
+                                    <option  value="eggs" <% if(update=== "true"){ %>  <%= product.subCategory == 'eggs' ? 'selected' : ''%> <% } %>>eggs</option><br>
+                                    <option  value="milk" <% if(update=== "true"){ %> <%= product.subCategory == 'milk' ? 'selected' : ''%> <% } %>>milk</option><br>
+                                    <option  value="butter" <% if(update=== "true"){ %> <%= product.subCategory == 'butter' ? 'selected' : ''%> <% } %>>butter</option><br>
+                                    <option  value="yogurt" <% if(update=== "true"){ %> <%= product.subCategory == 'yogurt' ? 'selected' : ''%> <% } %>>yogurt</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Fruit & Vegitables"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="Fruit"<% if(update=== "true"){ %>  <%= product.subCategory == 'Fruit' ? 'selected' : ''%> <% } %>>Fruit</option><br>
+                                    <option  value="Vegitables"<% if(update=== "true"){ %>  <%= product.subCategory == 'Vegitables' ? 'selected' : ''%> <% } %>>Vegitables</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Bread & bread spreads"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="sandwich"<% if(update=== "true"){ %>  <%= product.subCategory == 'sandwich' ? 'selected' : ''%> <% } %>>sandwich </option><br>
+                                    <option  value="rolls"<% if(update=== "true"){ %>  <%= product.subCategory == 'rolls' ? 'selected' : ''%> <% } %>>rolls</option><br>
+                                    <option  value="bagels" <% if(update=== "true"){ %> <%= product.subCategory == 'bagels' ? 'selected' : ''%> <% } %>>bagels</option><br>
+                                    <option  value="cake" <% if(update=== "true"){ %> <%= product.subCategory == 'cake' ? 'selected' : ''%> <% } %>>cake</option><br>
+                                    <option  value="tortillas"<% if(update=== "true"){ %>  <%= product.subCategory == 'tortillas' ? 'selected' : ''%> <% } %>>tortillas</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Dried Goods"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="vegitables"<% if(update=== "true"){ %>  <%= product.subCategory == 'vegitables' ? 'selected' : ''%> <% } %>>vegitables</option><br>
+                                    <option  value="fruits"<% if(update=== "true"){ %>  <%= product.subCategory == 'fruits' ? 'selected' : ''%> <% } %>>fruits</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Snacks"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="Chocolate"<% if(update=== "true"){ %>  <%= product.subCategory == 'Chocolate' ? 'selected' : ''%> <% } %>>Chocolate</option><br>
+                                    <option  value="Waffer"<% if(update=== "true"){ %>  <%= product.subCategory == 'Waffer' ? 'selected' : ''%> <% } %>>Waffer</option><br>
+                                    <option  value="ice cream"<% if(update=== "true"){ %>  <%= product.subCategory == 'ice cream' ? 'selected' : ''%> <% } %>>ice cream</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Care & Products"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="shampoo" <% if(update=== "true"){ %> <%= product.subCategory == 'shampoo' ? 'selected' : ''%> <% } %>>shampoo</option><br>
+                                    <option  value="soap" <% if(update=== "true"){ %> <%= product.subCategory == 'soap' ? 'selected' : ''%> <% } %>>soap</option><br>
+                                    <option  value="hand soap" <% if(update=== "true"){ %> <%= product.subCategory == 'hand soap' ? 'selected' : ''%> <% } %>>hand soap</option><br>
+                                    <option  value="shaving cream"<% if(update=== "true"){ %> <%= product.subCategory == 'shaving cream' ? 'selected' : ''%> <% } %>>shaving cream</option><br>
+                                <% } %> 
+                                <% if(product.category=== "Cleaning Products"){ %> 
+                                    <option disabled selected value="SubCategory" >Sub Category</option><br>
+                                    <option  value="laundry detergent"<% if(update=== "true"){ %>  <%= product.subCategory == 'laundry detergent' ? 'selected' : ''%> <% } %>>laundry detergent</option><br>
+                                    <option  value="dishwashing" <% if(update=== "true"){ %> <%= product.subCategory == 'dishwashing' ? 'selected' : ''%> <% } %>>dishwashing </option><br>
+                                <% } %> 
+                                <% if(product.category=== "others"){ %> 
+                                    <option disabled selected value="SubCategory" >No SubCategory</option><br>
+                                <% } %> 
+                            <% }else{ %> 
+                                <option disabled selected  value="subCategory" >SubCategory</option>
+                            <% } %> 
+                        </div>
+                    </select><br>
+                    <input min="0" type="number" value="<%- update=== 'false' ? '' : product.currentprice %>" class="productInput" name="price" placeholder="Price" required step="0.01" ><br>
+                    <input min="0" type="number" value="<%- update=== 'false' ? '' : product.quantity %>" class="productInput" name="quantity" placeholder="*Quantity" required ><br>
+                    <input type="text" class="productInput" name="brand" placeholder="Brand" value="<%- update=== 'false' ? '' : product.brand %>" ><br>
+                    <div class="divInput">
+                        
+                        <div class="flex-space-around">
+                            <div class="tablink greenColor bold" onclick="chooseImageType('uploadImage' ,this,'imageUrl')">Upload Image</div>
+                            <div class="tablink greenColor" onclick="chooseImageType('imageUrl',this,'uploadImage')" id="defaultOpen" >Image Url</div>
+                        </div>
+                        
+                        <div id="uploadImage" class="tabcontent1">
+                            <input type="file" class="productInputInsideDiv" style="color: black;" name="imagefile" placeholder="upload image"><br>
+                        </div>
+                        
+                        <div id="imageUrl" class="tabcontent2">
+                            <input type="text" class="productInputInsideDiv" style="color: black;" name="imageUrl" placeholder="image Url" value="<%- update=== 'false' ? '' : product.image %>"><br>
+                        </div>
+
+
+                    </div><br>
+                    
+                    <div class="divInput" >
+                        <div class="greenColor bold center"> Choose Store Location</div>
+                        <div class="left">
+                            
+                                <input type="checkbox" id="Cairo" name="location" value="cairo"
+                                <% if(update=== "true"){ %>
+                                    <% for (var i = 0; i < product.storeLocation.length; i++) { %>
+                                    <%= product.storeLocation[i] == 'cairo' ? 'checked' : ''%>
+                                    <%}}%>
+                                >
+                                <label for="Cairo">Cairo</label><br>
+                                <input type="checkbox" id="Alexandira" name="location" value="alexandria"
+                                <% if(update=== "true"){ %> 
+                                    <% for (var i = 0; i < product.storeLocation.length; i++) { %>
+                                    <%= product.storeLocation[i] == 'alexandria' ? 'checked' : ''%>
+                                    <%}}%>
+                                >
+                                <label for="Alexandira">Alexandira</label><br>
+                            
+                        </div>
+                    </div>
+                    <br>
+
+                    <textarea required class="productInput textArea" name="description" placeholder="Description" maxlength="5000"><%- update=== 'false' ? '' : product.description %>
+                    </textarea><br><br>
+
+                    
+                    <input  class="formButton padding-10px margin-5px" type="submit" value="<%- update=== 'false' ? 'Add Product' : 'Update Product' %>"></button>
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+ 
+
+      <!--footer Start-->
+      <%- include('../include/footer'); %>
+      <!--footer End-->
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <!-- css sheet start-->
+        
+            <!-- css components sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+                <!-- css components sheet end-->
+                <!-- css includes sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+                <!-- css includes sheet end-->
+                <!-- css general sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+                <!-- css general sheet end-->    
+                <!-- css page sheet end-->    
+            <link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+                <!-- css page sheet end-->
+                <!-- css bootstrap3.4.1 sheet end-->    
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <!-- css bootstrap3.4.1 sheet end-->
+            
+            <!-- css sheet start-->
+            
+            <!-- js file start-->
+                <!-- js header2 file start-->
+            <script src="../js/includes/header2.js"></script> 
+                <!-- js header2 file end-->
+                <!-- js bootstrap file start-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <!-- js bootstrap file end-->
+            
+            <!-- js file end-->
+
+            <!-- Data Tables Plugin -->
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">  
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            
+        <title>Cart</title>
+    </head>
+
+<body>
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+
+
+
+
+<div class="container-fluid">
+    <!-- Table Block start -->
+    <br>
+    <div class="tableDiv">
+        <% if (orders.length > 0){ %>
+          <table class="table table-responsive" id="myTable">
+            <thead>
+            <tr>
+              <th class="hideOnSmallScreens">ID</th>
+              <th>Date</th>
+              <th class="hideOnSmallScreens hideOnMediumScreens">Adress</th>
+              <th>Cart</th>
+              <th>Price</th>
+              <th>Ready</th>
+              <th>Shipped</th>
+              <th>Arrived</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% for(let order of orders){ %>
+            <tr class="tabelEntry">
+              <td class=" hideOnSmallScreens">
+                <%= order._id %>
+              </td>
+              <td class="">
+                <%= order.date %>
+              </td>
+              <td class=" hideOnSmallScreens hideOnMediumScreens">
+                <%= order.user.address %>              
+              </td>
+              <td class=" ">
+                <% if(order.products.items.length>0){ %>
+                <% for(let productDoc of order.products.items){ %>
+                  <%= productDoc.productId %> (<%= productDoc.quantity %>)
+                  <br>
+                <% } }%>
+                
+                <% if(order.products.mealsItems.length>0){ %>
+                <% for(let productDoc of order.products.mealsItems){ %>
+                    <%= productDoc.readyMealId %> (<%= productDoc.quantity %>)
+                  <br>
+                <% } }%>
+                </td>
+              <td class="">
+                <%= order.orderPrice %>
+              </td>
+              <td class="">
+                <%= order.ready %>                            
+              </td>
+              <td class="">
+                <%= order.shipped %>
+              </td>
+              <td class="">
+                <%= order.arrived %>
+              </td>
+            </tr>
+            <% } %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <h1 class="">No Orders Found!</h1>
+        <% } %> 
+      </div>  
+    <!-- Table Block end -->      
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+
+</body>
+
+</html>

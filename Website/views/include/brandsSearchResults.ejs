@@ -1,0 +1,36 @@
+<form action="">
+<div class="brandsScroll ">
+
+    <% if (search==='true'){%>
+        <input required type="hidden" name="search" value="<%= searchResult %>">
+        <% if (sortType!=='undefined'){%>
+        <input required type="hidden" name="sort" value="<%= sortType %>">
+        <% } %>
+    <% } %>
+
+    <% if (products.length > 0){ %>
+        <% for (let i = 0; i < brandkey.length; i++) {%>
+        <div class="brandCheckRow">
+            <input type="checkbox" name="filter" value="<%= brandkey[i] %>"  class="checkmark" <% if(typeof filter !== "undefined"){ %>  <%= filter.includes(brandkey[i]) ? 'checked' : ''%> <% } %>> 
+            <label for="<%= brandkey[i] %>" class="brandLabelText">
+                <%= brandkey[i] %> (<%= brandvalue[i] %>)
+            </label>
+        </div>
+        <% } %>
+    <% }%>
+
+
+</div>
+<div class="center"> 
+    <div class="vertical-center"> <button class="filterBtn " type="submit" id="filterBtn"> Filter </button></div>
+    <div class="vertical-center greenColor bold cursor" id="cancelCheckBtn">            
+        <button type="submit" value="Cancel" form="cancelForm" > Cancel</button> 
+    </div>
+</div>
+
+</form>
+
+<form id="cancelForm" action="<% search==='true'?'../../search/':deals==='true'?'../../getDeals/' :readyMeal==='true'?'../../readyMeals/' :'../../searchCategory' %>" method="GET">
+    <input required type="hidden" name="search" value="<%= searchResult %>">
+</form>
+

@@ -1,0 +1,193 @@
+
+
+/* Style each cart box start */
+
+.cartItem {
+    border: 2px solid #DDDD;
+    border-radius: 5px;
+    padding: 0px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.cartItem:nth-child() {
+    cursor: default;
+}
+
+.productImg {
+    padding: 0px;
+    height: 150px;
+}
+.productData {
+    padding: 0px;
+}
+/* Style each cart box end */
+
+/* Remove Button Style Start */
+    .removeBtn {
+        position: absolute;
+        top: -5px;
+        right: -35px;
+    }
+    .removeBtn button {
+        padding: 5px;
+    }
+    .removeBtn button i {
+        font-size: 13px;
+    }
+/* Remove Button Style End */
+/* adjust the product image size */
+    
+.customImg {    
+    width: 100px;
+    height: 100px;
+}
+
+/* Style the text inside each cart item start */
+
+
+.cartItemName {
+    padding-top: 5px;
+    font-size: 20px;
+    font-family: Roboto-Regular;
+    font-weight: 600;
+}
+
+.cartItemDescription {
+    padding-top: 30px;
+}
+
+.cartItemDescription, .productPrice {
+    font-size: 17px;
+    font-family: Roboto-Regular;
+    font-weight: 500;
+}
+.productPrice {
+    float: left;
+}
+.qtyRow {
+    padding-top: 40px;
+}
+
+/* Style the text inside each cart item end */
+
+/* Style the increase and decrease buttons */
+.decreaseAmount, .increaseAmount {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid #285B32;
+    font-size: 11px;
+    font-weight: 900;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    
+}
+
+.qty {
+    font-size: 16px;
+    font-weight: 600;   
+    transform: translateY(20%);
+}
+
+
+/* Total Cost Box Style Start */
+
+.totalCostBox {
+    border: 1px solid #DDDD;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 15px;
+}
+
+#totalPrice, #totalPriceText {
+    font-family: Roboto-Regular;
+}
+
+#totalPriceText {
+    font-weight: 700;
+}
+
+#totalPriceText {
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.continueBtn {
+    padding: 8px 12px;
+    background-color: var(--green);
+    color: white;
+    font-weight: 700;
+    border: none;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+
+.continueBtn:hover {
+    background-color: var(--green);
+}
+
+.backHome {
+    color: rgb(187, 2, 2);
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.backHome:hover {
+    color: rgb(150, 2, 2);
+}
+
+@media (max-width: 768px) {
+    .centerInSmallScreen {
+        text-align: center;
+    }
+    .cartItemDescription {
+        padding-top: 10px;
+    }
+    .qtyRow {
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }   
+    .cartItemDescription {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .removeBtn {
+        position: absolute;
+        top: -5px;
+        right: -20px;
+    }
+}
+/* 
+@media (min-width: 768px) and (max-width: 992px) {
+    .cartItemDescription {
+        padding-top: 20px;
+    }    
+    .removeBtn {
+        position: absolute;
+        top: -5px;
+        right: -35px;
+    }
+}
+
+@media (min-width: 992px){
+    .col-md-4, .totalCostBox {
+        width: 27% !important;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+.selectInput{
+    width: 100px;
+    background-color: white;
+    padding:5px ; 
+    border:1px solid rgb(138, 138, 138)
+} */
+/* Total Cost Box Style End */
+

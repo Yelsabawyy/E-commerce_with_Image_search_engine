@@ -1,0 +1,107 @@
+/* header2 css Start*/
+.header2{
+    padding: 10px;
+}
+.whiteHeader2Color{
+   color: var(--whiteHeader2);
+}
+.whiteHeader2Bg{
+    background-color: var(--whiteHeader2);
+}
+.blueHeader2Color{
+    color: var(--blueHeader2);
+}
+.blueHeader2Bg{
+    background-color: var(--blueHeader2);
+}
+.yellowHeader2Color{
+    color: var(--yellowHeader2);
+}
+.yellowHeader2Bg{
+    background-color: var(--yellowHeader2);
+}
+.logo{
+    padding-left: 20px;
+}
+/* .location-dropdown-menu{
+    margin-top: 19px !important;
+    margin-left: -55px !important;
+    border: none  !important;
+    border-radius: 0px  !important;
+}
+.location-dropdown-menu-items{
+    padding: 5px;
+}
+.location-dropdown-menu-items:hover{
+    padding: 5px;
+    font-size: 1.1em;
+} */
+.location{
+    border: none;
+    cursor: pointer;
+}
+
+.searchBtn{
+    border-top-right-radius: 50% !important;
+    border-bottom-right-radius: 50% !important;
+}
+.searchInput:focus,.searchInput:active {
+    outline: none;
+    box-shadow:none !important;
+    border:2px solid var(--green) !important;
+}
+.header-links ,.header-links:hover{
+    color:  var(--blueHeader2); ;
+    text-decoration: none;
+    cursor: pointer;
+}
+.searchDivXs{
+    padding-top: 1px;
+} 
+
+/* change location sm xs sideNavBar start  */
+.sidenavLocationChange {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    background-color: var(--green);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenavLocationChange a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.3em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenavLocationChange a:hover {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidenavLocationChange .closebtnLocationChange {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+/* change location sm xs sideNavBar end  */
+
+
+
+
+/* header2 css End*/

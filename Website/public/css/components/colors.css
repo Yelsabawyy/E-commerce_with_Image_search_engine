@@ -1,0 +1,69 @@
+
+:root {
+    --green: #003728;
+    --darkGreen: #002219;
+    --yellow: #FFB81C;
+    --lightGreen:#006C4F;
+    --lighterGreen:#00ad7f;
+    --lightererGreen:#00ffbb;
+}
+/* colors Start */
+.lightblueColor{
+    color:var(--lightGreen); ;
+}
+.lightblueBg{
+    background-color:var(--lightGreen); ;
+}
+.lighterGreenColor{
+    color:var(--lighterGreen); ;
+}
+.lighterGreenBg{
+    background-color:var(--lighterGreen); ;
+}
+.lightererGreenColor{
+    color:var(--lightererGreen); ;
+}
+.lightererGreenBg{
+    background-color:var(--lightererGreen); ;
+}
+.darkGreenColor{
+    color:var(--darkGreen); ;
+}
+.darkGreenBg{
+    background-color:var(--darkGreen); ;
+}
+.bgGreen{
+    /* background-color: #004b37; */
+    background-color: var(--green);
+}
+.greenColor{
+    color:  var(--green);
+    fill: var(--green);
+}
+.goldenColor{
+    color:var(--yellow);
+    /* color: rgb(236, 201, 0); */
+}
+.bgGolden{
+    background-color:var(--yellow)
+}
+.whiteColor{
+    color: white;
+    fill: white;
+}
+.bgWhite{
+    background-color: white;
+}
+.greyColor{
+    color: grey;
+}
+.redColor{
+    color: rgb(219, 1, 1);
+}
+.bgRed{
+    background-color: rgb(219, 1, 1);
+}
+.blackColor{
+    color: black;
+}
+/* colors End */

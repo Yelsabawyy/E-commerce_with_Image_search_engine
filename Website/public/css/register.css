@@ -1,0 +1,17 @@
+
+.registerInput{
+    width: 250px;
+    background-color: white;
+    padding:5px ; 
+    padding-left:10px ; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+    border:1px solid rgb(138, 138, 138)
+}
+
+.registerInput::placeholder{
+color: rgb(95, 95, 95);
+padding-left: 10px;
+
+}

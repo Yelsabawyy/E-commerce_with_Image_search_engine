@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/> 
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>      
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/addProduct.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js addProductfile start-->
+    <script src="../js/addProduct.js"></script> 
+        <!-- js addProduct file end-->
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>Add Product</title>
+</head>
+<body>
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+<% if(updateReadyMeal=== "false"){ %>
+    <% if(addReadyMeal=== "true"){ %>
+    <div class="alert alert-success center">
+        <strong>Success!</strong> Add Ready Meal successfully.
+    </div>
+
+    <% }else if(addReadyMeal=== "false"){ %>
+    <div class="alert alert-danger center">
+        <strong>Failed!</strong> Can't Add Ready Meal!!
+    </div>
+    <% }%>
+<% }%>
+
+<div class="container formDiv " >
+    <div class=" row-eq-height formContainer">
+        <div class="col-lg-4 col-md-4 hidden-sm hidden-xs bgGreen verticalHorizontalCenter">
+            <div class="logoFormContainer whiteColor center">Yelsabawy</div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-xs-12 no-padding-margin">
+            <div class="col-sm-12 col-xs-12 hidden-lg hidden-md bgGreen verticalHorizontalCenter" >
+                <div class="logoFormContainer whiteColor" >Yelsabawy</div>
+            </div>
+            <div class="row flex-space-around greenColor padding-10px">
+                <div class="greenColor activeForm" ><strong>
+                    <% if(updateReadyMeal=== "false"){ %>
+                        Add Ready Meal
+                    <% }else{ %>
+                        Update Ready Meal
+                    <% } %>
+                
+                </strong></div>
+            </div>
+
+            <div class="center padding-bottom-20px" >
+                <form class="" action=" <%- updateReadyMeal=== 'false' ? '../admin/addReadyMeal' : '../admin/updateReadyMeal' %>" method="POST">
+                    <% if (updateReadyMeal=== "true"){ %>
+                        <input hidden value="<%= product._id %>" name="id">
+                    <% } %>
+                    <input type="text" class="productInput" placeholder="Name" name="name" required value="<%- updateReadyMeal=== 'false' ? '' : product.name %>"><br>
+                   
+                    
+                    <input min="0" type="number" class="productInput" name="price" placeholder="Price" required step="0.01" value="<%- updateReadyMeal=== 'false' ? '' : product.currentprice %>"><br>
+                    <input min="0" type="number" class="productInput" name="quantity" placeholder="*Quantity" required value="<%- updateReadyMeal=== 'false' ? '' : product.quantity %>"><br>
+                    <input type="text" class="productInput" placeholder="Brand" name="brand"  value="<%- updateReadyMeal=== 'false' ? '' : product.brand %>" required><br>
+                    <div class="divInput">
+                        
+                        <div class="flex-space-around">
+                            <div class="tablink greenColor bold" onclick="chooseImageType('uploadImage' ,this,'imageUrl')" >Upload Image</div>
+                            <div class="tablink greenColor" onclick="chooseImageType('imageUrl',this,'uploadImage')" id="defaultOpen">Image Url</div>
+                        </div>
+                        
+                        <div id="uploadImage" class="tabcontent1">
+                            <input type="file" class="productInputInsideDiv" style="color: black;" placeholder="upload image" name="imageFile"><br>
+                        </div>
+                        
+                        <div id="imageUrl" class="tabcontent2">
+                            <input type="text" class="productInputInsideDiv" style="color: black;" placeholder="image Url" name="imageUrl" value="<%- updateReadyMeal=== 'false' ? '' : product.image %>"><br>
+                        </div>
+
+
+                    </div><br>
+                    
+                    <div class="divInput" >
+                        <div class="greenColor bold center"> Choose Store Location</div>
+                        <div class="left">
+                            <input type="checkbox" id="Cairo" name="location" value="cairo"
+                            <% if(updateReadyMeal=== "true"){ %>
+                                <% for (var i = 0; i < product.storeLocation.length; i++) { %>
+                                <%= product.storeLocation[i] == 'cairo' ? 'checked' : ''%>
+                                <%}}%>
+                            >
+                            <label for="Cairo">Cairo</label><br>
+                            <input type="checkbox" id="Alexandira" name="location" value="alexandria"
+                            <% if(updateReadyMeal=== "true"){ %> 
+                                <% for (var i = 0; i < product.storeLocation.length; i++) { %>
+                                <%= product.storeLocation[i] == 'alexandria' ? 'checked' : ''%>
+                                <%}}%>
+                            >
+                            <label for="Alexandira">Alexandira</label><br>
+                        </div>
+                    </div>
+                    <br>
+
+                    <textarea required class="productInput textArea" name="description" placeholder="Description" maxlength="5000"><%- updateReadyMeal=== 'false' ? '' : product.description %>
+                    </textarea><br><br>
+
+                    
+                    <button  class="formButton padding-10px margin-5px" value="<%- updateReadyMeal=== 'false' ? 'Add Meal' : 'Update Meal' %>" type="submit"><%- updateReadyMeal=== 'false' ? 'Add Meal' : 'Update Meal' %></button>
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+ 
+
+      <!--footer Start-->
+      <%- include('../include/footer'); %>
+      <!--footer End-->
+
+</body>
+</html>

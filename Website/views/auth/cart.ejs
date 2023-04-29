@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <!-- css sheet start-->
+        
+            <!-- css components sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/components/form.css"/>
+                <!-- css components sheet end-->
+                <!-- css includes sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+            <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+            <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+                <!-- css includes sheet end-->
+                <!-- css general sheet start-->
+            <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+                <!-- css general sheet end-->    
+                <!-- css page sheet end-->    
+            <link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+                <!-- css page sheet end-->
+                <!-- css bootstrap3.4.1 sheet end-->    
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <!-- css bootstrap3.4.1 sheet end-->
+            
+            <!-- css sheet start-->
+            
+            <!-- js file start-->
+                <!-- js header2 file start-->
+            <script src="../js/includes/header2.js"></script> 
+                <!-- js header2 file end-->
+                <!-- js bootstrap file start-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <!-- js bootstrap file end-->
+            
+            <!-- js file end-->
+            
+            <title>Cart</title>
+    </head>
+
+<body>
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+<div class="container whiteBlock">
+
+
+    <div class="col-xs-12 col-md-8 margin-top-20px" >
+
+        <% if (products.length>0){ %>
+            <% for (let product of products) {%>
+            
+        <div class="productBox flex-start">
+            <div class="col-xs-4 center">
+                <a href="../../getProductById/<%=product.productId._id %>" class="removeaHref">
+                <img class="imageProductBox"  src="<%= product.productId.image %>">
+                </a>
+            </div>
+            <div class="col-xs-8">
+                
+                    <div class="margin-top-20px">
+                        <strong><%= product.productId.name %></strong>
+                    </div>
+                
+                <div class="margin-top-20px">
+                    <strong>Quantity : <span><%= product.quantity %></span></strong><br>
+                    <strong>Price :  <%=product.productId.currentprice%> x <%= product.quantity   %>  EG</strong>
+                    <% if(product.productId.oldprice > product.productId.currentprice) {%>
+                    <strong class="oldPrice"><%=product.productId.oldprice%> x <%= product.quantity   %> EG</strong>
+                    <%}%>
+                </div>
+                <div class="margin-top-20px">
+  
+                    <div class="col-md-5 col-xs-6 margin-top-10px" >
+                    
+                        <div>
+                        <form method="POST" action="../auth/updateProductToCart" >
+                            <input hidden name="id" value="<%=product.productId._id%>">
+                                    <select style="padding: 5px; width: 100%;" class="selectInput" name="productQty" onchange="this.form.submit();">
+                                        <option selected disabled hidden>1</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                        </form>
+                        </div>
+        
+                    </div>
+                    <div class="col-md-4 col-xs-6 margin-top-10px" >
+                        <form action="../auth/deleteProductFromCart" method="POST">
+                            <input hidden name="id" value="<%=product.productId._id%>">
+                            <button class="buttonProductBox"> REMOVE </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <%} }%>
+
+        <% if (meals.length>0){ %>
+            <% for (let meal of meals) {%>
+
+                <div class="productBox flex-start">
+                    <div class="col-xs-4 center">
+                        <a href="../../getReadyMealById/<%=meal.readyMealId._id %>" class="removeaHref">
+                        <img class="imageProductBox"  src="<%= meal.readyMealId.image %>">
+                        </a>
+                    </div>
+                    <div class="col-xs-8">
+                        
+                            <div class="margin-top-20px">
+                                <strong><%= meal.readyMealId.name %></strong>
+                            </div>
+                        
+                        <div class="margin-top-20px">
+                            <strong>Quantity : <span><%= meal.quantity %></span></strong><br>
+                            <strong>Price : <%=  meal.readyMealId.currentprice %> x <%=meal.quantity %> EG</strong>
+                            <% if(meal.readyMealId.oldprice > meal.readyMealId.currentprice) {%>
+                            <strong class="oldPrice"><%=  meal.readyMealId.oldprice %> x <%=meal.quantity %> EG</strong>
+                            <%}%>
+                        </div>
+                        <div class="margin-top-20px">
+          
+                            <div class="col-md-5 col-xs-6 margin-top-10px" >
+                            
+                                <div>
+                                <form method="POST" action="../auth/updateMealToCart" >
+                                    <input hidden name="id" value="<%=meal.readyMealId._id%>">
+                                    <select  style="padding: 5px; width: 100%;" name="productQty" class="selectInput" onchange="this.form.submit();">
+                                        <option selected disabled hidden>1</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </form>
+                                </div>
+                
+                            </div>
+                            <div class="col-md-4 col-xs-6 margin-top-10px" >
+                                <form action="../auth/deleteMealFromCart" method="POST">
+                                    <input hidden name="id" value="<%=meal.readyMealId._id%>">
+                                    <button class="buttonProductBox"> REMOVE </button>
+                                </form>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                </div>
+
+        <%} }%>
+
+    </div>
+    <% if (meals.length>0 || products.length>0){ %>
+    <div class="col-xs-12 col-md-4  totalCostBox">
+        <div class="centerInSmallScreen">
+            <h4 style="font-weight: bolder;">Checkout</h4>
+            <hr>
+            <div class="flex-space-between">
+                <div class="totalPriceText" style="font-weight: bolder;">               
+                        subtotal Price :                    
+                </div>
+                <div>                        
+                        <%= totalPrice %>   EG                        
+                </div>
+            </div>
+            <hr>
+            <div class="flex-space-between">
+                <div class="totalPriceText" style="font-weight: bolder;">               
+                        Shipping:                    
+                </div>
+                <div>                   
+                        <% if(totalPrice > 500 ){%> 
+                            0.00 EG
+                        <% }else{%> 
+                            20.00 EG
+                        <% }%> 
+                </div>
+            </div>
+            <div class="flex-space-between">
+                <div class="totalPriceText" >               
+                      <span style="font-weight: bolder;"> Taxes </span>                      
+                      <span> (14%) </span>                 
+                      <span style="font-weight: bolder;">: </span>                      
+                </div>
+                <div>                   
+                        <%= (totalPrice*14)/100 %> 
+                        
+                </div>
+            </div>
+
+            
+            <hr>
+            <div class="flex-space-between">
+                <div class="totalPriceText" style="font-weight: bolder;">               
+                        Total Price :                    
+                </div>
+                <div>         
+                    <% if(totalPrice > 500 ){%> 
+                        
+                        <%= (totalPrice*1)+(totalPrice*14)/100 %> EG
+                    <% }else{%>
+                       
+                        <%= (totalPrice*1)+20+(totalPrice*14)/100 %>   EG
+                    <% }%>           
+                        
+                </div>
+            </div>
+            <br>
+          
+          
+          <form method="POST" action="../admin/placedOrder" class="displayInlineBlock">
+            <% if(totalPrice > 500 ){%> 
+                <input hidden value="<%= (totalPrice*1)+(totalPrice*14)/100 %>" name="totalPrice">
+            <% }else{%>
+                <input hidden value="<%= (totalPrice*1)+20+(totalPrice*14)/100 %>" name="totalPrice"> 
+            <% }%>  
+            <button type="submit" class="continueBtn col-xs-12">
+              Submit Order
+            </button>
+          </form>
+        </div>
+    </div>
+    <%}%>
+    <% if (!meals.length>0 && !products.length>0){ %>
+    <div class="col-xs-12 center">
+        <h1>No Products Found!</h1>
+    </div>
+    <%}%>
+   
+
+
+  </div>
+  </div>
+    <!--footer Start-->
+    <%- include('../include/footer'); %>
+    <!--footer End-->
+
+</body>
+
+</html>

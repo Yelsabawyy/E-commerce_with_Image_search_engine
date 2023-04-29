@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- css sheet start-->
+
+    <!-- css components sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/components/items.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/components/colors.css"/>
+        <!-- css components sheet end-->
+        <!-- css includes sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/includes/header1.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/header2.css"/>    
+    <link rel="stylesheet" type="text/css" href="../css/includes/userNavbar.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/includes/footer.css"/>       
+        <!-- css includes sheet end-->
+        <!-- css general sheet start-->
+    <link rel="stylesheet" type="text/css" href="../css/general.css"/>    
+        <!-- css general sheet end-->    
+        <!-- css page sheet end-->    
+    <link rel="stylesheet" type="text/css" href="../css/productsResult.css"/>
+        <!-- css page sheet end-->
+        <!-- css bootstrap3.4.1 sheet end-->    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- css bootstrap3.4.1 sheet end-->
+    
+    <!-- css sheet start-->
+    
+    <!-- js file start-->
+        <!-- js header2 file start-->
+    <script src="../js/includes/header2.js"></script> 
+        <!-- js header2 file end-->
+        <!-- js header2 file start-->
+    <script src="../js/productResult.js"></script> 
+        <!-- js header2 file end-->
+
+        <!-- js bootstrap file start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!-- js bootstrap file end-->
+    
+    <!-- js file end-->
+    
+    <title>Search</title>
+</head>
+<body>
+
+
+<!-- sidenavbar start-->
+<%- include('../include/sidenavbar'); %>
+<!-- sidenavbar end-->
+
+
+<div id="myBody">    
+<!--header1 Start-->
+    <%- include('../include/header1'); %>
+<!--header1 End-->
+<!--header1 Start-->
+    <%- include('../include/header2'); %>
+<!--header1 End-->
+
+
+
+
+
+
+
+<div class="container-fluid">
+    
+    <form action="" method="GET">
+        <% if (search==='true'){%>
+            <input required type="hidden" name="search" value="<%= searchResult %>">
+        <% } %>
+        
+
+        <select  class="filter-Sort-Btn maxRight" name="sort" required id="categoryAddProduct" onchange="this.form.submit();"> 
+            <div style="background-color: white;">
+                <option  style="background-color: white; color: black;" disabled selected value="category" >Sort By</option>
+                <option value="low_high"  <%= sortType == 'low_high' ? 'selected' : '' %>  style="background-color: white; color: black;">Price (low)</option>
+                <option value="high_low"  <%= sortType == 'high_low' ? 'selected' : '' %>  style="background-color: white; color: black;">Price (high)</option>
+            </div>
+        </select>
+        
+        <% if (search ==="false" && deals==="false" && readyMeal==="false"){%>
+            <% if (filter !==undefined){%>
+                <% for (let filt of filter) {%>
+                <% console.log(filt); %>
+                    <input required type="hidden" name="filter" value="<%= filt %>">
+                <% } %>
+            <% } %>
+        <% }else{ %>
+
+            <% if (filter !=="undefined"){%>
+                <% for (let filt of filter) {%>
+                <% console.log(filt); %>
+                    <input required type="hidden" name="filter" value="<%= filt %>">
+                <% } %>
+            <% } %>
+        <% } %>
+
+    </form>
+
+
+    
+
+
+
+    <button class="filter-Sort-Btn maxLeft  hidden-lg hidden-md" onclick="openNavFilter()">
+        <span class="vertical-center">Filter</span>
+        <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="vertical-center bi bi-sliders" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+        </svg>
+    </button>
+
+
+
+    <div id="mySidenavFilter" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn maxRight"  onclick="closeNavSort()">&times;</a>
+        <br>
+        <div class="brandsScroll ">
+            <!--brands Search Results Start-->
+            <%- include('../include/brandsSearchResults'); %>
+            <!--brands Search Results End-->
+        </div>
+    </div>
+</div>
+
+<div class="" >
+    <div class="col-lg-2-5 col-md-3 hidden-sm hidden-xs">  
+    <h5 class="bold">Search Results:(<%= products.length %>)
+        <% if (search==='false' && deals==='false'){%>
+            Meals
+        <% }else{%>
+            Products
+        <% }%>
+    </h5>
+    <div class="  filterBox" >
+            
+        <p class="center" ><strong>Filter By Brand</strong></p>
+
+        
+       
+        <!--brands Search Results Start-->
+        <%- include('../include/brandsSearchResults'); %>
+        <!--brands Search Results End-->
+        
+    
+        
+        
+
+    </form>
+    </div>
+  </div>
+  <div class="col-lg-9-5 col-md-9 col-sm-12 col-xs-12">
+    <div class="">
+
+        <% if (products.length>0){ %>
+            <% for (let product of products) {%>
+                
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-6" data-brand="<%=product.brand%>">
+                <div class="productBox">
+
+                   
+
+                    <% if (search==='false' && deals==='false' && category==='false' && subcategory==='false'){%>
+                        <a href="../../getReadyMealById/<%=product._id%>" class="removeaHref">
+                    <% }else{%>
+                        <a href="../../getProductById/<%=product._id%>" class="removeaHref">
+                    <% }%>
+
+
+
+                        <% if (product.oldprice > product.currentprice){%>
+                        <div class="bgGreen whiteColor discoutProductBox center">
+                            <strong> <%= parseInt(100-( (product.currentprice*100)/ product.oldprice) ) %>  % Discount</strong>
+                        </div>
+                        <% }else{%>
+                        <div class=" noDiscoutProductBox center">
+                        </div>
+                        <% }%>
+                        <div class=" center">
+                            <img class="imageProductBox"  src="<%= product.image %>">
+                        </div>
+                        <div class="flex-start nameProductBox ">
+                            <strong><%= product.name %></strong>
+                        </div>
+                        <div class="flex-start col-xs-12">
+                            <strong><%= product.currentprice %> EG</strong>
+                            <% if(product.oldprice > product.currentprice){ %>
+                            <strong class="oldPrice"><%= product.oldprice %> EG</strong>
+                            <%}%>
+                        </div>
+                    </a>
+
+                    <div class="hrProductBox">
+                        <hr>
+                    </div>
+        
+                    <% if(admin =="true" || admin =="false"){ %>
+                        <form id="" method="POST" action="<%-  search==='false' && deals==='false' && category==='false' && subcategory==='false' ? '../auth/addMealToCart' : '../auth/addProductToCart'%>" >
+                    <%}else{%>
+                        <form id="" method="GET" action="../auth/login" >   
+                    <%}%> 
+
+
+                    <div class="lastRowProductBox flex-space-around">
+                
+                        
+                      <div>
+                            <input hidden value="<%= product._id %>" name="id">
+                            
+                            <select style="padding: 5px;" required name="productQty" id="productQty">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                    </div>
+                    <div>
+                    <button type="submit" class="buttonProductBox"> ADD </button>
+                    </div>
+                            
+                            
+                    </div>
+                    </form>
+                    <% if(admin =="true"){ %>
+                    <div class="hrProductBox">
+                        <hr>
+                    </div>
+                    
+                    <div class="lastRowProductBox flex-space-around">
+                    
+                        
+                        <div>
+                            <form method="POST"  action="<%-  search==='false' && deals==='false' && category==='false' && subcategory==='false' ? '../admin/updateFormReadyMeals' : '../admin/updateForm'%>" class="displayInlineBlock">
+                                <input hidden value="<%= product._id %>" name="id">
+                                <button class="buttonProductBox" type="submit"> EDIT </button>
+                            </form> 
+                        </div>
+                        <div>
+                            <form method="POST" action="<%-  search==='false' && deals==='false' && category==='false' && subcategory==='false' ? '../admin/deleteReadyMeal' : '../admin/deleteProduct'%>" class="displayInlineBlock">
+                                <input hidden value="<%= product._id %>" name="id">
+                                <button class="buttonProductBox" type="submit"> DELETE </button>
+                            </form>                       
+                        </div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+
+
+            <%  }%>
+        <% }else{%>
+            <h2 class="greenColor center">Sorry No Products Found !!</h2>
+        <% }%>
+    </div>
+  </div>
+ 
+</div>
+</div>
+
+
+<!--footer Start-->
+<%- include('../include/footer'); %>
+<!--footer End-->
+
+</body>
+</html>

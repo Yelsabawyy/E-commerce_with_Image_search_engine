@@ -1,0 +1,24 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.aFooter{
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
+.aFooter:hover{
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
+.aFooter:hover::before{
+content: '\2022';
+padding-right: 6px;
+color: var(--yellow);
+}
+.footerPosition{
+    margin-top: auto;
+
+}

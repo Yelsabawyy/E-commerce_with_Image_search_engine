@@ -1,0 +1,137 @@
+.hr-dash{
+    height: 0px;
+    border: none;
+    border-top: 2px dashed rgb(212, 212, 212);
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.hr {
+    height: 0px;
+    border: none;
+    border-top: 2px solid rgb(212, 212, 212);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.trackOrder{
+    box-shadow: 1px 2px 2px 2px #e0e0e0;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.startRight{
+    display:-webkit-flex;
+    display:flex;
+    list-style-type:none;
+    padding:0;
+    justify-content:flex-end;
+}
+.startLeft{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+
+
+@media (max-width: 767px) {
+    .startRight{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        }
+}
+
+
+.orderIdHeader{
+    font-size: 1.2em;
+}
+
+.orderInput{
+    width: 250px;
+    background-color: white;
+    padding:5px ; 
+    padding-left:10px ; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px;
+    border:1px solid var(--green)
+}
+
+.orderInput::placeholder{
+color: rgb(95, 95, 95);
+padding-left: 10px;
+
+}
+
+.formButton{
+    background-color: #003728;
+    padding: 10px 25px 10px 25px;
+    color: white;
+    border: none;
+}
+
+/* track */
+
+.track {
+    position: relative;
+    background-color: #ddd;
+    height: 7px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 60px;
+    margin-top: 50px;
+}
+
+.track .step {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    /* width: 25%; */
+    margin-top: -18px;
+    text-align: center;
+    position: relative
+}
+
+.track .step.active:before {
+    background: var(--green)
+}
+
+.track .step::before {
+    height: 7px;
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    top: 18px
+}
+
+.track .step.active .icon {
+    background: var(--green);
+    color: #fff
+}
+
+.track .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    border-radius: 100%;
+    background: #ddd
+}
+
+.track .step.active .text {
+    font-weight: 400;
+    color: #000
+}
+
+.track .text {
+    display: block;
+    margin-top: 7px
+}
+
